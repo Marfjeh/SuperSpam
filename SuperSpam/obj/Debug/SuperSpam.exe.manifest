@@ -49,8 +49,8 @@
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>cupPw0sJMRZ5XvOc9PyGHqtXwBw=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>WVRSFT3EhdLr5p/XRt1eHIiNc5I0oJhjIlbiU6nmRsE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,32 +61,32 @@
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yrSsmb2HuzxoTy898oeZOyp88Fg=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>GhCRFYJ+zUE7l4hyxlYoVyEC/pk94t/zpgvHO9fEJxg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam Html Flooder.exe" size="27136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam Html Flooder.exe" size="27648">
       <assemblyIdentity name="SuperSpam Html Flooder" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>YUTCQganDeCpdB98AlydTbG2AaQ=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>+flWuTMERtNfOHAmED4NO6J+sy1XUkcuJF2oqVx78Ck=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="57856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="59904">
       <assemblyIdentity name="SuperSpam" version="2.3.0.36" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JgOGNGOQ60I7a8P9XEYZDR1JKFo=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PLM/URZPUN2w+4gLkyqYvjIiyXrZUxBtGzq1RpRSa0A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -95,17 +95,17 @@
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>xMeVewzm/AoVH7BSrTqv4nA7HBI=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fiBDoeditAOFfxmDpZHT7s9+i2oLrEGlJLX1o2bPgIQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SuperSpam.exe.config" size="1364">
+  <file name="SuperSpam.exe.config" size="1358">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>rxZ0ZL4xrp6NoWXJ99+2x4R2u7A=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>IbOFZ5W52BjTH1B3ceNm3+aL/ooZWIAbxtKC5u3ouXA=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
