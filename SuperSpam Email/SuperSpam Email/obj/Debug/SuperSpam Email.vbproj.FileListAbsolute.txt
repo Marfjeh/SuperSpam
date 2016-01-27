@@ -1,1 +1,2 @@
 Z:\SuperSpam2 SourceCode\SuperSpam Email\SuperSpam Email\bin\Debug\SuperSpam Email.exe.config
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam Email\SuperSpam Email\bin\Debug\SuperSpam Email.exe.config
