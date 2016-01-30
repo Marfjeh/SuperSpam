@@ -31,21 +31,20 @@ namespace SuperSpam
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ControlPanel = new System.Windows.Forms.Panel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.StartSpam = new System.Windows.Forms.Button();
+            this.StopSpam = new System.Windows.Forms.Button();
+            this.VersionInfoLabel = new System.Windows.Forms.Label();
+            this.Counter = new System.Windows.Forms.Label();
+            this.EngineChoser = new System.Windows.Forms.ComboBox();
+            this.speed = new System.Windows.Forms.Label();
+            this.SpeedControl = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuperSpamEngine = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.RichTextBox();
             this.afteller = new System.Windows.Forms.Timer(this.components);
-            this.trololol = new System.Windows.Forms.Timer(this.components);
             this.OldSuperSpamEngine = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -55,53 +54,70 @@ namespace SuperSpam
             this.tekstOpslaanAlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.debuggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.secretStuffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enterToetsVerzendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameToetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.superSpamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.superSpamHtmlFlooderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.superSpamEMailFlooserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.superSpamWebViewSimulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mouseMacroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recordMousePosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playMousePosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlinehelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overSuperSpamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.superSpamScriptHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nieuweVersieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelUpdate = new System.Windows.Forms.Panel();
-            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.ThemePanel = new System.Windows.Forms.Panel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpeedControl)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.panelUpdate.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.ThemePanel.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // ControlPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.webBrowser1);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 27);
-            this.panel1.TabIndex = 2;
+            this.ControlPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.ControlPanel.Controls.Add(this.webBrowser1);
+            this.ControlPanel.Controls.Add(this.StartSpam);
+            this.ControlPanel.Controls.Add(this.StopSpam);
+            this.ControlPanel.Controls.Add(this.VersionInfoLabel);
+            this.ControlPanel.Controls.Add(this.Counter);
+            this.ControlPanel.Controls.Add(this.EngineChoser);
+            this.ControlPanel.Controls.Add(this.speed);
+            this.ControlPanel.Controls.Add(this.SpeedControl);
+            this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ControlPanel.Location = new System.Drawing.Point(0, 24);
+            this.ControlPanel.Name = "ControlPanel";
+            this.ControlPanel.Size = new System.Drawing.Size(551, 27);
+            this.ControlPanel.TabIndex = 2;
+            this.ControlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.ControlPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // webBrowser1
             // 
@@ -113,107 +129,109 @@ namespace SuperSpam
             this.webBrowser1.Visible = false;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
-            // button3
+            // StartSpam
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Start";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.StartSpam.BackColor = System.Drawing.SystemColors.Control;
+            this.StartSpam.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.StartSpam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartSpam.Image = ((System.Drawing.Image)(resources.GetObject("StartSpam.Image")));
+            this.StartSpam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StartSpam.Location = new System.Drawing.Point(3, 3);
+            this.StartSpam.Name = "StartSpam";
+            this.StartSpam.Size = new System.Drawing.Size(48, 23);
+            this.StartSpam.TabIndex = 1;
+            this.StartSpam.Text = "Start";
+            this.StartSpam.UseVisualStyleBackColor = false;
+            this.StartSpam.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // StopSpam
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Control;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(57, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(54, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Stop";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.StopSpam.BackColor = System.Drawing.SystemColors.Control;
+            this.StopSpam.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.StopSpam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StopSpam.ForeColor = System.Drawing.Color.Black;
+            this.StopSpam.Location = new System.Drawing.Point(57, 3);
+            this.StopSpam.Name = "StopSpam";
+            this.StopSpam.Size = new System.Drawing.Size(54, 23);
+            this.StopSpam.TabIndex = 2;
+            this.StopSpam.Text = "Stop";
+            this.StopSpam.UseVisualStyleBackColor = false;
+            this.StopSpam.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label3
+            // VersionInfoLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(485, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Made by: Marf";
+            this.VersionInfoLabel.AutoSize = true;
+            this.VersionInfoLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.VersionInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VersionInfoLabel.Location = new System.Drawing.Point(485, 0);
+            this.VersionInfoLabel.Name = "VersionInfoLabel";
+            this.VersionInfoLabel.Size = new System.Drawing.Size(66, 12);
+            this.VersionInfoLabel.TabIndex = 6;
+            this.VersionInfoLabel.Text = "Made by: Marf";
             // 
-            // label6
+            // Counter
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(126, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "5";
-            this.label6.Visible = false;
+            this.Counter.AutoSize = true;
+            this.Counter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Counter.Location = new System.Drawing.Point(126, 4);
+            this.Counter.Name = "Counter";
+            this.Counter.Size = new System.Drawing.Size(19, 20);
+            this.Counter.TabIndex = 10;
+            this.Counter.Text = "5";
+            this.Counter.Visible = false;
             // 
-            // comboBox1
+            // EngineChoser
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.EngineChoser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.EngineChoser.FormattingEnabled = true;
+            this.EngineChoser.Items.AddRange(new object[] {
             "Engine 1",
             "Engine 2 (sloom)"});
-            this.comboBox1.Location = new System.Drawing.Point(376, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 21);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Text = "Engine 1";
+            this.EngineChoser.Location = new System.Drawing.Point(353, 4);
+            this.EngineChoser.Name = "EngineChoser";
+            this.EngineChoser.Size = new System.Drawing.Size(79, 21);
+            this.EngineChoser.TabIndex = 11;
+            this.EngineChoser.Text = "Engine 1";
+            this.EngineChoser.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label1
+            // speed
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(234, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Snelheid:";
+            this.speed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.speed.AutoSize = true;
+            this.speed.Location = new System.Drawing.Point(211, 8);
+            this.speed.Name = "speed";
+            this.speed.Size = new System.Drawing.Size(51, 13);
+            this.speed.TabIndex = 3;
+            this.speed.Text = "Snelheid:";
             // 
-            // numericUpDown1
+            // SpeedControl
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Location = new System.Drawing.Point(291, 7);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.SpeedControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeedControl.Location = new System.Drawing.Point(268, 4);
+            this.SpeedControl.Maximum = new decimal(new int[] {
             276447231,
             23283,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.SpeedControl.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.SpeedControl.Name = "SpeedControl";
+            this.SpeedControl.Size = new System.Drawing.Size(79, 20);
+            this.SpeedControl.TabIndex = 4;
+            this.SpeedControl.Value = new decimal(new int[] {
             500,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.SpeedControl.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // SuperSpamEngine
             // 
@@ -221,22 +239,22 @@ namespace SuperSpam
             // 
             // textBox1
             // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 51);
+            this.textBox1.Location = new System.Drawing.Point(36, 51);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(551, 317);
+            this.textBox1.Size = new System.Drawing.Size(515, 295);
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = "";
+            this.textBox1.SelectionChanged += new System.EventHandler(this.textBox1_SelectionChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // afteller
             // 
             this.afteller.Interval = 1000;
             this.afteller.Tick += new System.EventHandler(this.afteller_Tick);
-            // 
-            // trololol
-            // 
-            this.trololol.Tick += new System.EventHandler(this.trololol_Tick);
             // 
             // OldSuperSpamEngine
             // 
@@ -248,13 +266,14 @@ namespace SuperSpam
             this.notifyIcon2.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon2.Icon")));
             this.notifyIcon2.Text = "SuperSpam";
             this.notifyIcon2.Visible = true;
+            this.notifyIcon2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon2_MouseDoubleClick);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bestandToolStripMenuItem,
             this.instellingenToolStripMenuItem,
-            this.superSpamToolStripMenuItem,
+            this.mouseMacroToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.nieuweVersieToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -271,6 +290,7 @@ namespace SuperSpam
             this.tekstOpslaanAlsToolStripMenuItem,
             this.toolStripSeparator2,
             this.debuggerToolStripMenuItem,
+            this.secretStuffToolStripMenuItem,
             this.toolStripSeparator1,
             this.afsluitenToolStripMenuItem});
             this.bestandToolStripMenuItem.Name = "bestandToolStripMenuItem";
@@ -280,46 +300,54 @@ namespace SuperSpam
             // nieuwToolStripMenuItem
             // 
             this.nieuwToolStripMenuItem.Name = "nieuwToolStripMenuItem";
-            this.nieuwToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.nieuwToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.nieuwToolStripMenuItem.Text = "Nieuw";
             this.nieuwToolStripMenuItem.Click += new System.EventHandler(this.nieuwToolStripMenuItem_Click);
             // 
             // tekstOpenenToolStripMenuItem
             // 
             this.tekstOpenenToolStripMenuItem.Name = "tekstOpenenToolStripMenuItem";
-            this.tekstOpenenToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.tekstOpenenToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tekstOpenenToolStripMenuItem.Text = "Openen";
             this.tekstOpenenToolStripMenuItem.Click += new System.EventHandler(this.tekstOpenenToolStripMenuItem_Click);
             // 
             // tekstOpslaanAlsToolStripMenuItem
             // 
             this.tekstOpslaanAlsToolStripMenuItem.Name = "tekstOpslaanAlsToolStripMenuItem";
-            this.tekstOpslaanAlsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.tekstOpslaanAlsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tekstOpslaanAlsToolStripMenuItem.Text = "Opslaan als";
             this.tekstOpslaanAlsToolStripMenuItem.Click += new System.EventHandler(this.tekstOpslaanAlsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(131, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
             // 
             // debuggerToolStripMenuItem
             // 
             this.debuggerToolStripMenuItem.Name = "debuggerToolStripMenuItem";
-            this.debuggerToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.debuggerToolStripMenuItem.Text = "Debug";
+            this.debuggerToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.debuggerToolStripMenuItem.Text = "Debug Info";
             this.debuggerToolStripMenuItem.Click += new System.EventHandler(this.debuggerToolStripMenuItem_Click);
+            // 
+            // secretStuffToolStripMenuItem
+            // 
+            this.secretStuffToolStripMenuItem.Name = "secretStuffToolStripMenuItem";
+            this.secretStuffToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.secretStuffToolStripMenuItem.Text = "Experimental Stuff";
+            this.secretStuffToolStripMenuItem.Click += new System.EventHandler(this.secretStuffToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(167, 6);
             // 
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
             // instellingenToolStripMenuItem
             // 
@@ -342,172 +370,284 @@ namespace SuperSpam
             // gameToetsToolStripMenuItem
             // 
             this.gameToetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1});
+            this.tToolStripMenuItem});
             this.gameToetsToolStripMenuItem.Enabled = false;
             this.gameToetsToolStripMenuItem.Name = "gameToetsToolStripMenuItem";
             this.gameToetsToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.gameToetsToolStripMenuItem.Text = "Game toets ";
             // 
-            // toolStripTextBox1
+            // tToolStripMenuItem
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox1.Text = "key";
+            this.tToolStripMenuItem.Name = "tToolStripMenuItem";
+            this.tToolStripMenuItem.Size = new System.Drawing.Size(81, 22);
+            this.tToolStripMenuItem.Text = "T";
             // 
-            // superSpamToolStripMenuItem
+            // mouseMacroToolStripMenuItem
             // 
-            this.superSpamToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.superSpamHtmlFlooderToolStripMenuItem,
-            this.superSpamEMailFlooserToolStripMenuItem,
-            this.superSpamWebViewSimulatorToolStripMenuItem});
-            this.superSpamToolStripMenuItem.Name = "superSpamToolStripMenuItem";
-            this.superSpamToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.superSpamToolStripMenuItem.Text = "Programma\'s";
+            this.mouseMacroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recordMousePosToolStripMenuItem,
+            this.playMousePosToolStripMenuItem});
+            this.mouseMacroToolStripMenuItem.Name = "mouseMacroToolStripMenuItem";
+            this.mouseMacroToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.mouseMacroToolStripMenuItem.Text = "Mouse Macro";
             // 
-            // superSpamHtmlFlooderToolStripMenuItem
+            // recordMousePosToolStripMenuItem
             // 
-            this.superSpamHtmlFlooderToolStripMenuItem.Name = "superSpamHtmlFlooderToolStripMenuItem";
-            this.superSpamHtmlFlooderToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.superSpamHtmlFlooderToolStripMenuItem.Text = "SuperSpam Html Flooder";
-            this.superSpamHtmlFlooderToolStripMenuItem.Click += new System.EventHandler(this.superSpamHtmlFlooderToolStripMenuItem_Click);
+            this.recordMousePosToolStripMenuItem.Name = "recordMousePosToolStripMenuItem";
+            this.recordMousePosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.recordMousePosToolStripMenuItem.Text = "Record Mouse Pos";
             // 
-            // superSpamEMailFlooserToolStripMenuItem
+            // playMousePosToolStripMenuItem
             // 
-            this.superSpamEMailFlooserToolStripMenuItem.Name = "superSpamEMailFlooserToolStripMenuItem";
-            this.superSpamEMailFlooserToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.superSpamEMailFlooserToolStripMenuItem.Text = "SuperSpam E-Mail Flooder";
-            // 
-            // superSpamWebViewSimulatorToolStripMenuItem
-            // 
-            this.superSpamWebViewSimulatorToolStripMenuItem.Name = "superSpamWebViewSimulatorToolStripMenuItem";
-            this.superSpamWebViewSimulatorToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.superSpamWebViewSimulatorToolStripMenuItem.Text = "SuperSpam Web-View Simulator";
+            this.playMousePosToolStripMenuItem.Name = "playMousePosToolStripMenuItem";
+            this.playMousePosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.playMousePosToolStripMenuItem.Text = "Play Mouse Pos";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.overSuperSpamToolStripMenuItem,
-            this.superSpamScriptHelpToolStripMenuItem});
+            this.onlinehelpToolStripMenuItem,
+            this.overSuperSpamToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // onlinehelpToolStripMenuItem
+            // 
+            this.onlinehelpToolStripMenuItem.Enabled = false;
+            this.onlinehelpToolStripMenuItem.Name = "onlinehelpToolStripMenuItem";
+            this.onlinehelpToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.onlinehelpToolStripMenuItem.Text = "Online-help";
+            // 
             // overSuperSpamToolStripMenuItem
             // 
             this.overSuperSpamToolStripMenuItem.Name = "overSuperSpamToolStripMenuItem";
-            this.overSuperSpamToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.overSuperSpamToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.overSuperSpamToolStripMenuItem.Text = "Over SuperSpam";
             this.overSuperSpamToolStripMenuItem.Click += new System.EventHandler(this.overSuperSpamToolStripMenuItem_Click);
-            // 
-            // superSpamScriptHelpToolStripMenuItem
-            // 
-            this.superSpamScriptHelpToolStripMenuItem.Name = "superSpamScriptHelpToolStripMenuItem";
-            this.superSpamScriptHelpToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.superSpamScriptHelpToolStripMenuItem.Text = "SuperSpam-Script Help";
-            this.superSpamScriptHelpToolStripMenuItem.Click += new System.EventHandler(this.superSpamScriptHelpToolStripMenuItem_Click);
             // 
             // nieuweVersieToolStripMenuItem
             // 
             this.nieuweVersieToolStripMenuItem.Name = "nieuweVersieToolStripMenuItem";
-            this.nieuweVersieToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.nieuweVersieToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.nieuweVersieToolStripMenuItem.Text = "Nieuwe Versie 0.0";
             this.nieuweVersieToolStripMenuItem.Visible = false;
             this.nieuweVersieToolStripMenuItem.Click += new System.EventHandler(this.nieuweVersieToolStripMenuItem_Click);
             // 
-            // panelUpdate
+            // statusStrip1
             // 
-            this.panelUpdate.Controls.Add(this.webBrowser2);
-            this.panelUpdate.Controls.Add(this.panel4);
-            this.panelUpdate.Controls.Add(this.panel3);
-            this.panelUpdate.Location = new System.Drawing.Point(159, 139);
-            this.panelUpdate.Name = "panelUpdate";
-            this.panelUpdate.Size = new System.Drawing.Size(380, 229);
-            this.panelUpdate.TabIndex = 8;
-            this.panelUpdate.Visible = false;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel5});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 346);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(551, 22);
+            this.statusStrip1.TabIndex = 13;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // webBrowser2
+            // toolStripStatusLabel1
             // 
-            this.webBrowser2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser2.Location = new System.Drawing.Point(0, 29);
-            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(380, 134);
-            this.webBrowser2.TabIndex = 2;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(29, 17);
+            this.toolStripStatusLabel1.Text = "Lijn:";
             // 
-            // panel4
+            // toolStripStatusLabel2
             // 
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.button5);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 163);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(380, 66);
-            this.panel4.TabIndex = 1;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel2.Text = "1";
             // 
-            // label4
+            // toolStripStatusLabel3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Er is een update voor SuperSpam!";
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel3.Text = "|";
             // 
-            // button5
+            // toolStripStatusLabel4
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(292, 40);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Nah";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(87, 17);
+            this.toolStripStatusLabel4.Text = "Engine Gestopt";
             // 
-            // button2
+            // toolStripStatusLabel5
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(13, 40);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Download Update";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(380, 29);
-            this.panel3.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(3, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "SuperSpam Updater";
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel5.Text = "|";
             // 
             // button1
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(346, 0);
+            this.button1.Location = new System.Drawing.Point(4, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "X";
+            this.button1.Size = new System.Drawing.Size(93, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "1777 Theme";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(4, 71);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Default Theme";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(4, 42);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(93, 23);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "DarkTheme";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // ThemePanel
+            // 
+            this.ThemePanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ThemePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ThemePanel.Controls.Add(this.groupBox1);
+            this.ThemePanel.Controls.Add(this.checkBox3);
+            this.ThemePanel.Controls.Add(this.checkBox2);
+            this.ThemePanel.Controls.Add(this.checkBox1);
+            this.ThemePanel.Controls.Add(this.button6);
+            this.ThemePanel.Controls.Add(this.button3);
+            this.ThemePanel.Controls.Add(this.panel3);
+            this.ThemePanel.Location = new System.Drawing.Point(42, 79);
+            this.ThemePanel.Name = "ThemePanel";
+            this.ThemePanel.Size = new System.Drawing.Size(144, 255);
+            this.ThemePanel.TabIndex = 17;
+            this.ThemePanel.Visible = false;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Enabled = false;
+            this.checkBox3.Location = new System.Drawing.Point(7, 229);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(92, 17);
+            this.checkBox3.TabIndex = 22;
+            this.checkBox3.Text = "Multithreading";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(8, 206);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(69, 17);
+            this.checkBox2.TabIndex = 21;
+            this.checkBox2.Text = "Allow GC";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged_1);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(8, 183);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(100, 17);
+            this.checkBox1.TabIndex = 20;
+            this.checkBox1.Text = "Enable Console";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(6, 153);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(128, 23);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "Play Mouse Macro";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(5, 124);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(129, 23);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "Record Mouse Pos\r\n";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(142, 21);
+            this.panel3.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SuperSpam.Properties.Resources.close_button;
+            this.pictureBox1.Location = new System.Drawing.Point(122, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(2, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Experimental stuff";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.Enabled = false;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(-39, 2);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.listBox1.ScrollAlwaysVisible = true;
+            this.listBox1.Size = new System.Drawing.Size(72, 280);
+            this.listBox1.TabIndex = 0;
+            this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 51);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(36, 295);
+            this.panel1.TabIndex = 18;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Location = new System.Drawing.Point(5, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(116, 100);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Theme";
             // 
             // Form1
             // 
@@ -515,46 +655,50 @@ namespace SuperSpam
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(551, 368);
-            this.Controls.Add(this.panelUpdate);
+            this.Controls.Add(this.ThemePanel);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ControlPanel);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "SuperSpam C# Port Codename: ²";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.ControlPanel.ResumeLayout(false);
+            this.ControlPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpeedControl)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panelUpdate.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.ThemePanel.ResumeLayout(false);
+            this.ThemePanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ControlPanel;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.NumericUpDown SpeedControl;
+        private System.Windows.Forms.Label speed;
+        private System.Windows.Forms.Button StopSpam;
+        private System.Windows.Forms.Button StartSpam;
         private System.Windows.Forms.Timer SuperSpamEngine;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label VersionInfoLabel;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private RichTextBox textBox1;
-        private Label label6;
+        private Label Counter;
         private Timer afteller;
-        private Timer trololol;
-        private ComboBox comboBox1;
+        private ComboBox EngineChoser;
         private Timer OldSuperSpamEngine;
         private NotifyIcon notifyIcon2;
         private MenuStrip menuStrip1;
@@ -563,11 +707,8 @@ namespace SuperSpam
         private ToolStripMenuItem tekstOpslaanAlsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem afsluitenToolStripMenuItem;
-        private ToolStripMenuItem superSpamToolStripMenuItem;
-        private ToolStripMenuItem superSpamHtmlFlooderToolStripMenuItem;
-        private ToolStripMenuItem superSpamEMailFlooserToolStripMenuItem;
-        private ToolStripMenuItem superSpamWebViewSimulatorToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem onlinehelpToolStripMenuItem;
         private ToolStripMenuItem overSuperSpamToolStripMenuItem;
         private ToolStripMenuItem debuggerToolStripMenuItem;
         private ToolStripMenuItem nieuwToolStripMenuItem;
@@ -576,17 +717,32 @@ namespace SuperSpam
         private ToolStripMenuItem instellingenToolStripMenuItem;
         private ToolStripMenuItem enterToetsVerzendenToolStripMenuItem;
         private ToolStripMenuItem gameToetsToolStripMenuItem;
-        private ToolStripTextBox toolStripTextBox1;
-        private Panel panelUpdate;
-        private WebBrowser webBrowser2;
-        private Panel panel4;
-        private Panel panel3;
-        private Label label2;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel4;
         private Button button1;
-        private Button button5;
         private Button button2;
-        private Label label4;
-        private ToolStripMenuItem superSpamScriptHelpToolStripMenuItem;
+        private Button button5;
+        private Panel ThemePanel;
+        private Panel panel3;
+        private Button button6;
+        private Button button3;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private CheckBox checkBox3;
+        private CheckBox checkBox2;
+        private CheckBox checkBox1;
+        private ToolStripMenuItem secretStuffToolStripMenuItem;
+        private ToolStripMenuItem tToolStripMenuItem;
+        private ToolStripMenuItem mouseMacroToolStripMenuItem;
+        private ToolStripMenuItem recordMousePosToolStripMenuItem;
+        private ToolStripMenuItem playMousePosToolStripMenuItem;
+        private ListBox listBox1;
+        private Panel panel1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel toolStripStatusLabel2;
+        private ToolStripStatusLabel toolStripStatusLabel3;
+        private ToolStripStatusLabel toolStripStatusLabel5;
+        private GroupBox groupBox1;
     }
 }
 

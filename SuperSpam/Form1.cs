@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using WindowsInput;
+using AeroGlass;
 
 namespace SuperSpam
 {
@@ -35,21 +36,20 @@ namespace SuperSpam
         private const int MY_CODE_PAGE = 437;
 
         Process currentProc = Process.GetCurrentProcess();
-        string versie = "2.4.1"; // Versie
-        int buildnum = 158; // Build nummer
-        string buildtype = "Alpha"; // type van versie, begint met beta als het af is Release.
-        string builddate = "18-1-2016"; // de build date van deze versie
-        string codename = "HappyBOOM";
+        string versie = "3.0.0"; // Versie
+        int buildnum = 172; // Build nummer
+        string buildtype = "Pre-Alpha"; // type van versie, begint met beta als het af is Release.
+        string builddate = "4-1-2016"; // de build date van deze versie
+        string codename = "tribus";
         string updateserver = "http://www.sweetnyancraft.nl/projects/Super/SuperSpam.exe"; // de update path
         string server = "http://www.sweetnyancraft.nl/projects/Super/index.html"; //De server waar de infomatie word gedownload
         public string changelog = "http://www.sweetnyancraft.nl/projects/Super/changelog.html"; // niet in gebruik
         public string new_version = ""; // De nieuwe versie die nu op het net staat.
         string kill = "1"; //Globale Killswitch, zonder internet werkt de programma niet. default op 1, maar veranderd na verbinden met de server.
-        string killversion = "2.1"; // versie killswitch, dat het verouderd is en niet meer te gebruiken is
         string new_date = ""; // De datum van de nieuwe versie, word pas beschrikbaar na het verbinden van de server.
         Boolean in64now = Environment.Is64BitProcess; // kijkt dat superspam in een 64 bit process draait.
-        Boolean Debug_mode = false; // debug modus zet de mogelijkheid om de killswitch om te omzeilen, en schakeld debug knoppen in, en geeft meer infomatie in de titelbalk. hey scriptkiddie, schakel dit in om het te omzeilen. wat makkelijk he? 1337 h4x0r, HEKKIE.
-        Boolean Consolev = true;
+        Boolean Debug_mode = true; // debug modus zet de mogelijkheid om de killswitch om te omzeilen, en schakeld debug knoppen in, en geeft meer infomatie in de titelbalk. hey scriptkiddie, schakel dit in om het te omzeilen. wat makkelijk he? 1337 h4x0r, HEKKIE.
+        Boolean Consolev = false; // opend een console venster waar de debug info word geprint.
         int gcaan = 1;
         //System info
         string OS = Environment.OSVersion.ToString(); //Welk NT versie van windows draait er?
@@ -67,44 +67,65 @@ namespace SuperSpam
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            int interval = Convert.ToInt32(numericUpDown1.Value);
+            int interval = Convert.ToInt32(SpeedControl.Value);
             debuglog("Engine snelheid: " + interval.ToString(), "info");
             SuperSpamEngine.Interval = interval;
             OldSuperSpamEngine.Interval = interval;
         }
 
+        public void setcolors(Color balkmenu, Color balkcontrols, Color tekstbox, Color fontcolor)
+        {
+            menuStrip1.BackColor = balkmenu;
+            statusStrip1.BackColor = balkmenu;
+            ControlPanel.BackColor = balkcontrols;
+            textBox1.BackColor = tekstbox;
+            ThemePanel.BackColor = balkcontrols;
+
+            this.ForeColor = fontcolor;
+            ThemePanel.ForeColor = fontcolor;
+            menuStrip1.ForeColor = fontcolor;
+            ControlPanel.ForeColor = fontcolor;
+            textBox1.ForeColor = fontcolor;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            comboBox1.Enabled = false;
-            label6.Visible = true;
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Je kan niet spammen als je niks in je tekst heb staan...", "SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+            EngineChoser.Enabled = false;
+            Counter.Visible = true;
             afteller.Enabled = true;
-            debuglog("SuperSpam " + comboBox1.Text  + " Begint. Wacht 5 seconden...", "Melding");
+            debuglog("SuperSpam " + EngineChoser.Text  + " Begint. Wacht 5 seconden...", "Engine");
+            }
         }
 
         private void SuperSpamEngine_Tick(object sender, EventArgs e)
         {
 
-            
-           // if (checkBox1.Checked == true)
-            //{
+            if (enterToetsVerzendenToolStripMenuItem.Checked == true)
+            {
                 InputSimulator.SimulateTextEntry(textBox1.Text);
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
-            //}
-            //else
-            //{
-              //  InputSimulator.SimulateTextEntry(textBox1.Text);
-            //}
             }
+            else
+            {
+                InputSimulator.SimulateTextEntry(textBox1.Text);
+            }
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            debuglog("SuperSpam " + comboBox1.Text + " Gestopt.", "Melding");
-            comboBox1.Enabled = true;
+            debuglog("SuperSpam " + EngineChoser.Text + " Gestopt.", "Engine");
+            EngineChoser.Enabled = true;
             SuperSpamEngine.Enabled = false;
             OldSuperSpamEngine.Enabled = false;
             afteller.Enabled = false;
-            label6.Text = "5";
-            label6.Visible = false;
+            Counter.Text = "5";
+            Counter.Visible = false;
             ram_clean();
         }
 
@@ -124,12 +145,21 @@ namespace SuperSpam
             }
             notifyIcon2.Text = "SuperSpam Versie: " + versie + " Build: " + buildnum + " " + buildtype;
             //Message_Window.Dock = DockStyle.Fill;
-            this.Text = "SuperSpam " + versie;
-            label3.Text = "Made by: Marf Ver: " + versie;
+            this.Text = "SuperSpam Pre-Alpha Codename: tribus";
+            VersionInfoLabel.Text = "Made by: Marf Ver: " + versie;
             stop_gui();
-            int interval = Convert.ToInt32(numericUpDown1.Value);
+            int interval = Convert.ToInt32(SpeedControl.Value);
             SuperSpamEngine.Interval = interval;
-            webBrowser1.Navigate(server);
+            if (Debug_mode == false)
+            {
+                webBrowser1.Navigate(server);
+            }
+            else
+            {
+                this.Text = "SuperSpam 2 ver: " + versie + " Build: " + buildnum + " " + buildtype + " " + builddate + " DEBUG MODE";
+                start_gui();
+                debuglog("Superspam draait in debug mode", "WARNING");
+            }
             debuglog("Begint met verbinden van de server...", "Activatie_thread");
 
         }
@@ -143,9 +173,8 @@ namespace SuperSpam
                     new_version = webBrowser1.Document.GetElementById("new_version").OuterText;
                     kill = webBrowser1.Document.GetElementById("Kill_Switch").OuterText;
                     new_date = webBrowser1.Document.GetElementById("date").OuterText;
-                    killversion = webBrowser1.Document.GetElementById("Kill_Version").OuterText;
                     int killer = Convert.ToInt32(kill);
-                    debuglog("Document Completed", "Activatie_thread");
+                    debuglog("Loaded.", "Activatie_thread");
 
                     if (killer == 1)
                     {
@@ -156,27 +185,13 @@ namespace SuperSpam
                     {
                         start_gui();
                         ram_clean();
-                        debuglog("Killswitch is niet actief. Start gui", "Activatie_thread");
+                        debuglog("Versie is geaccepteerd, Killswitch is niet actief. Start gui", "Activatie_thread");
 
                     }
 
                     // update checker
                     float old_v = float.Parse(versie);
                     float new_v = float.Parse(new_version);
-                    float killver = float.Parse(killversion);
-
-                    if (old_v <= killver)
-                    {
-                        debuglog("Deze versie is te verouderd.", "Activatie_thread");
-                        label4.Text = "Jou Versie van SuperSpam is te verouderd. je moet updaten\n dit kan vaak komen dat de Api veranderd is.";
-                        button1.Visible = false;
-                        button5.Visible = false;
-                        stop_gui();
-                        panelUpdate.Visible = true;
-                        webBrowser2.Navigate(changelog);
-                        panelUpdate.Dock = DockStyle.Fill;
-                    }
-
                     debuglog("Checkt voor nieuwe versie...", "Activatie_thread");
                     if (old_v == new_v)
                     {
@@ -185,11 +200,11 @@ namespace SuperSpam
                     }
                     else if (old_v >= new_v)
                     {
-                       // if (Debug_mode == true)
+                        //if (Debug_mode == true)
                        // {
-                            label3.Text = "Versie: " + versie + " Build: " + buildnum + "\n HAI MARF :DDDD";
+                            VersionInfoLabel.Text = "Versie: " + versie + " Build: " + buildnum + "\n HAI MARF :DDDD";
                             debuglog("Hoi marf :)", "Activatie_thread");
-                       // }
+                        //}
                        /* else
                         {
                             stop_gui();
@@ -227,28 +242,40 @@ namespace SuperSpam
 
             }
         }
+
+        private void Update_button_Click(object sender, EventArgs e)
+        {
+
+            System.Diagnostics.Process.Start(updateserver); // maak gebruik van de systeem default browser
+            //webBrowser1.Navigate(updateserver);
+            this.Close();
+
+
+        }
+
         public void stop_gui()
         {
-            panel1.Visible = false;
+            ControlPanel.Visible = false;
             textBox1.Visible = false;
             menuStrip1.Visible = false;
         }
 
         public void start_gui()
         {
-            panel1.Visible = true;
+            ControlPanel.Visible = true;
             textBox1.Visible = true;
             menuStrip1.Visible = true;
 
         }
         private void afteller_Tick(object sender, EventArgs e)
         {
-            int aftel = Convert.ToInt32(label6.Text);
+            int aftel = Convert.ToInt32(Counter.Text);
+            
             if (aftel == 0)
             {
                 afteller.Enabled = false;
-                label6.Text = "5";
-                if (comboBox1.Text == "Engine 1")
+                Counter.Text = "5";
+                if (EngineChoser.Text == "Engine 1")
                 {
                     SuperSpamEngine.Enabled = true;
                 }
@@ -256,12 +283,12 @@ namespace SuperSpam
                 {
                     OldSuperSpamEngine.Enabled = true;
                 }
-                label6.Visible = false;
+                Counter.Visible = false;
             }
             else
             {
                 aftel = aftel - 1;
-                label6.Text = Convert.ToString(aftel);
+                Counter.Text = Convert.ToString(aftel);
                 
             }
         }
@@ -312,7 +339,7 @@ namespace SuperSpam
 
         private void trololol_Tick(object sender, EventArgs e)
         {
-            if (panel1.Visible == true)
+            if (ControlPanel.Visible == true)
             {
                 stop_gui();
             }
@@ -324,19 +351,69 @@ namespace SuperSpam
 
         private void OldSuperSpamEngine_Tick(object sender, EventArgs e)
         {
-          
+            if (enterToetsVerzendenToolStripMenuItem.Checked == true)
+            {
                 try
                 {
                     SendKeys.Send(textBox1.Text + "{ENTER}");
                 }
-                catch(Exception jemoeder)
+                catch
                 {
-                    debuglog("Error: " + jemoeder, "ERROR");
                     SuperSpamEngine.Enabled = false;
-                    OldSuperSpamEngine.Enabled = false;
-                    MessageBox.Show("Script Fout / Syntax Fout.\n Voor help zie Help > SuperSpam-Script.", "SuperSpam Script", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
+                    MessageBox.Show("Fout bij het typen van het bericht, tekens ( ) zijn niet toegestaan. om dit probleem op te lossen is om Engine 1 tegebruiken");
                 }
+            }
+            else
+            {
+                try
+                {
+                    SendKeys.Send(textBox1.Text);
+                }
+                catch
+                {
+                    SuperSpamEngine.Enabled = false;
+                    MessageBox.Show("Fout bij het typen van het bericht, tekens ( ) zijn niet toegestaan. om dit probleem op te lossen is om Engine 1 tegebruiken");
+                }
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        private void notifyIcon2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            /*if (e.Button == MouseButtons.Left)
+    {
+        this.Location = new Point(Cursor.Position.X + e.X , Cursor.Position.Y + e.Y);
+    }*/
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Menupanel_MouseLeave(object sender, EventArgs e)
+        {
+        }
+        private void onlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void tekstOpenenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -382,35 +459,72 @@ namespace SuperSpam
 
         private void nieuwToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            DialogResult dialogResult = MessageBox.Show("Weet u het zeker? je kan niks meer terug halen dat is een helelange tijd!", "SuperSpam", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (dialogResult == DialogResult.Yes)
+            {
+                textBox1.Text = "";
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
         }
 
         private void debuggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            long memoryUsed = currentProc.PrivateMemorySize64;
-            long naarmb = 1024 * 1024;
-            MessageBox.Show("------------------DEBUG------------------\n"
-                + "\nBuild in: C#"
-                + "\nBuild: " + buildnum
-                + "\nbuild type: " + buildtype
-                + "\nbuild datum: " + builddate
-                + "\nOS: " + OS
-                + "\nIs 64bit? " + Isx64
-                + "\ndraait superspam in 64bit? " + in64now
-                + "\nCpu count: " + cpus
-                + "\nDebug mode: " + Debug_mode
-                + "\nSpamEngine in gebruik: " + comboBox1.Text
-                + "\nSpamEngine Status: " + SuperSpamEngine.Enabled.ToString()
-                + "\nSpamEngine Snelheid: " + SuperSpamEngine.Interval.ToString()
-                + "\nPath: " + SpamPath
-                + "\nHoeveel gebruikt superspam: " + memoryUsed / naarmb + " MB");
+            if (Consolev == false)
+            {
+                long memoryUsed = currentProc.PrivateMemorySize64;
+                long naarmb = 1024 * 1024;
+                MessageBox.Show("------------------DEBUG------------------\n"
+                    + "\nBuild in: C#"
+                    + "\nBuild: " + buildnum
+                    + "\nbuild type: " + buildtype
+                    + "\nbuild datum: " + builddate
+                    + "\nOS: " + OS
+                    + "\nIs 64bit? " + Isx64
+                    + "\ndraait superspam in 64bit? " + in64now
+                    + "\nCpu count: " + cpus
+                    + "\nDebug mode: " + Debug_mode
+                    + "\nSpamEngine in gebruik: " + EngineChoser.Text
+                    + "\nSpamEngine Status: " + SuperSpamEngine.Enabled.ToString()
+                    + "\nSpamEngine Snelheid: " + SuperSpamEngine.Interval.ToString()
+                    + "\nPath: " + SpamPath
+                    + "\nHoeveel gebruikt superspam: " + memoryUsed / naarmb + " MB. Bytes: " + memoryUsed, "Debug");
+            }
+            else
+            {
+                long memoryUsed = currentProc.PrivateMemorySize64;
+                long naarmb = 1024 * 1024;
+                debuglog("------------------DEBUG------------------\n"
+                    + "\nBuild in: C#"
+                    + "\nBuild: " + buildnum
+                    + "\nbuild type: " + buildtype
+                    + "\nbuild datum: " + builddate
+                    + "\nOS: " + OS
+                    + "\nIs 64bit? " + Isx64
+                    + "\ndraait superspam in 64bit? " + in64now
+                    + "\nCpu count: " + cpus
+                    + "\nDebug mode: " + Debug_mode
+                    + "\nSpamEngine in gebruik: " + EngineChoser.Text
+                    + "\nSpamEngine Status: " + SuperSpamEngine.Enabled.ToString()
+                    + "\nSpamEngine Snelheid: " + SuperSpamEngine.Interval.ToString()
+                    + "\nPath: " + SpamPath
+                    + "\nHoeveel gebruikt superspam: " + memoryUsed / naarmb + " MB. Bytes: " + memoryUsed, "Debug");
+            }
+            
         }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void nieuweVersieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            stop_gui();
-            panelUpdate.Visible = true;
-            webBrowser2.Navigate(changelog);
-            panelUpdate.Dock = DockStyle.Fill;
+            System.Diagnostics.Process.Start(updateserver);
+            //Form2 UpdateForm = new Form2();
+            //UpdateForm.Show();
         }
 
         private void enterToetsVerzendenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -424,30 +538,152 @@ namespace SuperSpam
                 enterToetsVerzendenToolStripMenuItem.Checked = false;
             }
         }
-        private void button5_Click(object sender, EventArgs e)
+        public void consolewindow()
         {
-            start_gui();
-            panelUpdate.Visible = false;
-            ram_clean();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            for (int p = 1; p <= textBox1.Lines.Length; p++)
+            {
+                listBox1.Items.Add(p);
+            }
+            listBox1.SelectedItems.Add(textBox1.GetLineFromCharIndex(textBox1.SelectionStart) + 1);
+
+            // Syntax Highlighter for Superspam
+            int i = textBox1.SelectionStart;
+            toolStripStatusLabel2.Text = "" + textBox1.GetLineFromCharIndex(i + 1);
+            if (EngineChoser.Text == "Engine 2 (sloom)")
+            {
+                this.CheckKeyword("{F1}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F2}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F3}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F4}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F5}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F6}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F7}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F8}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F9}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F10}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F11}", Color.BlueViolet, 0);
+                this.CheckKeyword("{F12}", Color.BlueViolet, 0);
+                this.CheckKeyword("+", Color.MediumVioletRed, 0);
+                this.CheckKeyword("^", Color.MediumVioletRed, 0);
+                this.CheckKeyword("&", Color.MediumVioletRed, 0);
+            }
+            
+        }
+
+        private void CheckKeyword(string word, Color color, int startIndex)
+        {
+            if (this.textBox1.Text.Contains(word))
+            {
+                int index = -1;
+                int selectStart = this.textBox1.SelectionStart;
+
+                while ((index = this.textBox1.Text.IndexOf(word, (index + 1))) != -1)
+                {
+                    this.textBox1.Select((index + startIndex), word.Length);
+                    this.textBox1.SelectionColor = color;
+                    this.textBox1.Select(selectStart, 0);
+                    this.textBox1.SelectionColor = Color.Black;
+                }
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void superSpamWebViewSimulatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("stress.exe");
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int i = textBox1.SelectionStart;
+            toolStripStatusLabel2.Text = "" + textBox1.GetLineFromCharIndex(i + 1);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panelUpdate.Visible = false;
-            start_gui();
-            ram_clean();
+            setcolors(Color.DarkGray, Color.Gray, Color.Black, Color.Lime);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           // Process.Start(updateserver);
-            webBrowser2.Navigate(updateserver);
+            setcolors(Control.DefaultBackColor, Control.DefaultBackColor, Color.White, Control.DefaultForeColor);
+            
         }
 
-        private void superSpamScriptHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            helpform help = new helpform();
-            help.Show();
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            setcolors(Color.FromArgb(255, 62, 62, 62), Color.FromArgb(255, 45, 45, 48), Color.FromArgb(255, 20, 20, 20), Color.FromArgb(255, 255, 255, 255));
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ThemePanel.Hide();
+        }
+
+        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                gcaan = 1;
+            }
+            else
+            {
+                gcaan = 0;
+            }
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                Consolev = true;
+                AllocConsole();
+                Console.WriteLine("***************************************");
+                Console.WriteLine("* SuperSpam Chat Flooder");
+                Console.WriteLine("* Version: " + versie + "\n* Build: " + buildnum + "\n* Build Date: " + builddate + " \n * Build type: " + buildtype);
+                Console.WriteLine("***************************************");
+                Console.WriteLine("* Debug Console");
+                Console.WriteLine("***************************************");
+            }
+            else
+            {
+                Consolev = false;
+            }
+        }
+
+        private void secretStuffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemePanel.Visible = true;
+        }
+
+        private void textBox1_SelectionChanged(object sender, EventArgs e)
+        {
+            listBox1.SelectedItems.Add(textBox1.GetLineFromCharIndex(textBox1.SelectionStart) + 1);
+        }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

@@ -95,40 +95,20 @@ C:\Users\Marvin\Desktop\c#\SuperSpam2 SourceCode\SuperSpam\obj\Debug\SuperSpam.a
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.exe.config
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.exe
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.pdb
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.exe.config
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.exe
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.pdb
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.exe.manifest
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.application
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.exe
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.pdb
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\AeroGlass.dll
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\InputSimulator.dll
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam Html Flooder.exe
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam Html Flooder.pdb
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.csprojResolveAssemblyReference.cache
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.Form1.resources
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.Properties.Resources.resources
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.csproj.GenerateResource.Cache
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.TrustInfo.xml
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.exe.manifest
-C:\Users\Marvin\Desktop\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.application
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.exe.config
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.exe
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.pdb
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.exe.manifest
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.application
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.exe
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam.pdb
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\AeroGlass.dll
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\InputSimulator.dll
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam Html Flooder.exe
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\bin\Debug\SuperSpam Html Flooder.pdb
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.csprojResolveAssemblyReference.cache
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.Form1.resources
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.Properties.Resources.resources
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.csproj.GenerateResource.Cache
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.TrustInfo.xml
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.exe.manifest
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.application
-D:\Backups\Laptop Nieuw\SuperSpam-master\SuperSpam\obj\Debug\SuperSpam.helpform.resources
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.exe.manifest
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.application
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.exe
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.pdb
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\AeroGlass.dll
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\InputSimulator.dll
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam Html Flooder.exe
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam Html Flooder.pdb
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.csprojResolveAssemblyReference.cache
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.Form1.resources
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.Form2.resources
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.Properties.Resources.resources
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.Update_form.resources
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.csproj.GenerateResource.Cache
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.TrustInfo.xml
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.exe.manifest
+D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.application
