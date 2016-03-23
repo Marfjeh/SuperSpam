@@ -28,7 +28,7 @@ namespace SuperSpam
         int version_int = 250;
 
         // Build info
-        int buildnum = 209;
+        int buildnum = 210;
         string buildtype = "Pre-Alpha";
         string builddate = "23-3-2016";
         string codename = "engliesh";
@@ -470,5 +470,46 @@ namespace SuperSpam
                 SpeedControl.Enabled = true;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string promptValue = Prompt.ShowDialog("Text Toevroegen?", "SuperSpam");
+            listBox1.Items.Add(promptValue);
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (this.listBox1.SelectedIndex >= 0)
+            {
+                this.listBox1.Items.RemoveAt(this.listBox1.SelectedIndex);
+            }
+        }
+    }
+}
+
+//string promptValue = Prompt.ShowDialog("Test", "123");
+public static class Prompt
+{
+    public static string ShowDialog(string text, string caption)
+    {
+        Form prompt = new Form()
+        {
+            Width = 500,
+            Height = 150,
+            FormBorderStyle = FormBorderStyle.FixedDialog,
+            Text = caption,
+            StartPosition = FormStartPosition.CenterScreen,
+            ControlBox = false
+        };
+        Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
+        TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+        Button confirmation = new Button() { Text = "OK", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+        confirmation.Click += (sender, e) => { prompt.Close(); };
+        prompt.Controls.Add(textBox);
+        prompt.Controls.Add(confirmation);
+        prompt.Controls.Add(textLabel);
+        prompt.AcceptButton = confirmation;
+
+        return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
     }
 }

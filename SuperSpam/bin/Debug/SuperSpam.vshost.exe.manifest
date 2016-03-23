@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="122368">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="125440">
       <assemblyIdentity name="SuperSpam" version="2.5.0.200" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EcFwmzoeqXyr4pWiDNWjS4QgORf30EJCoKfshbO/ba8=</dsig:DigestValue>
+        <dsig:DigestValue>X5uBH6sKa3LIMj0oBLlhOlkIKr1wlrpXU0d3cs7WUVg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
