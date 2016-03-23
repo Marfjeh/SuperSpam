@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("MarfProjects")]
 [assembly: AssemblyProduct("SuperSpam")]
-[assembly: AssemblyCopyright("Copyright ©  2013 - 2015 MarfProjects")]
+[assembly: AssemblyCopyright("©  2013 - 2016 MarfProjects")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.3.0.36")]
-[assembly: AssemblyFileVersion("2.3.0.36")]
+[assembly: AssemblyVersion("2.5.0.200")]
+[assembly: AssemblyFileVersion("2.5.0.200")]
 [assembly: NeutralResourcesLanguageAttribute("nl-NL")]

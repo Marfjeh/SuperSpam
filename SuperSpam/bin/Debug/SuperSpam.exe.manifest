@@ -4,7 +4,7 @@
   <description asmv2:iconFile="SS_new_Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SuperSpam" version="2.3.0.36" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SuperSpam" version="2.5.0.200" language="neutral" processorArchitecture="msil" />
     <commandLine file="SuperSpam.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -49,8 +49,8 @@
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>cupPw0sJMRZ5XvOc9PyGHqtXwBw=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>WVRSFT3EhdLr5p/XRt1eHIiNc5I0oJhjIlbiU6nmRsE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,32 +61,32 @@
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yrSsmb2HuzxoTy898oeZOyp88Fg=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>GhCRFYJ+zUE7l4hyxlYoVyEC/pk94t/zpgvHO9fEJxg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam Html Flooder.exe" size="27136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam Html Flooder.exe" size="27648">
       <assemblyIdentity name="SuperSpam Html Flooder" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>YUTCQganDeCpdB98AlydTbG2AaQ=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>hw4aKIl5aNTWw9RT0vwjl4jEQ9U/agEgBoAoY9ufTbM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="131584">
-      <assemblyIdentity name="SuperSpam" version="2.3.0.36" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="120832">
+      <assemblyIdentity name="SuperSpam" version="2.5.0.200" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5mKFBmKP9bM13OgqfXpxwehWcko=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>V/pNL3NWNUArhrIPBLc0PWyGfEbCTMUmBidMc+Bias8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -95,8 +95,8 @@
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>xMeVewzm/AoVH7BSrTqv4nA7HBI=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fiBDoeditAOFfxmDpZHT7s9+i2oLrEGlJLX1o2bPgIQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SS_new_Icon.ico" size="32038">
@@ -104,17 +104,17 @@
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>deNADvuvbAeN1iM77whWKXUcVeI=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+9LJL0epu1MqxvYRDrdnxog5XNQGj0VjFNVafav8OXI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SuperSpam.exe.config" size="1364">
+  <file name="SuperSpam.exe.config" size="1358">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>rxZ0ZL4xrp6NoWXJ99+2x4R2u7A=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>IbOFZ5W52BjTH1B3ceNm3+aL/ooZWIAbxtKC5u3ouXA=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
