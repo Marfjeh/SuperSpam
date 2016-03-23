@@ -28,7 +28,7 @@ namespace SuperSpam
         int version_int = 250;
 
         // Build info
-        int buildnum = 208;
+        int buildnum = 209;
         string buildtype = "Pre-Alpha";
         string builddate = "23-3-2016";
         string codename = "engliesh";
@@ -58,19 +58,22 @@ namespace SuperSpam
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            int interval = Convert.ToInt32(SpeedControl.Value);
-            debuglog("Engine snelheid: " + interval.ToString(), "info");
-            SuperSpamEngine.Interval = interval;
-            OldSuperSpamEngine.Interval = interval;
-            if (interval < 100)
+            if (SpeedControl.Enabled == true)
             {
-                alertTimer.Enabled = true;
-                toolStripStatusLabel1.Text = "Speed below 100ms can make your system unstable!";
-            }
-            else
-            {
-                alertTimer.Enabled = false;
-                toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
+                int interval = Convert.ToInt32(SpeedControl.Value);
+                debuglog("Engine snelheid: " + interval.ToString(), "info");
+                SuperSpamEngine.Interval = interval;
+                OldSuperSpamEngine.Interval = interval;
+                if (interval < 100)
+                {
+                    alertTimer.Enabled = true;
+                    toolStripStatusLabel1.Text = "Speed below 100ms can make your system unstable!";
+                }
+                else
+                {
+                    alertTimer.Enabled = false;
+                    toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
+                }
             }
         }
         private void button3_Click(object sender, EventArgs e)
@@ -90,7 +93,6 @@ namespace SuperSpam
 
         private void SuperSpamEngine_Tick(object sender, EventArgs e)
         {
-
             if (enterToetsVerzendenToolStripMenuItem.Checked == true)
             {
                 InputSimulator.SimulateTextEntry(textBox1.Text);
@@ -100,6 +102,23 @@ namespace SuperSpam
             {
                 InputSimulator.SimulateTextEntry(textBox1.Text);
             }
+            if (enableRandomIntervalToolStripMenuItem.Checked == true)
+            {
+                randominterval();
+            }
+        }
+
+        private void randominterval()
+        {
+            int min = Convert.ToInt32(toolStripTextBox1.Text);
+            int max = Convert.ToInt32(toolStripTextBox2.Text);
+            Random r = new Random();
+            int rInt = r.Next(min, max);
+            SpeedControl.Value = rInt;
+
+            SuperSpamEngine.Interval = rInt;
+            OldSuperSpamEngine.Interval = rInt;
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -303,6 +322,10 @@ namespace SuperSpam
                     MessageBox.Show("Syntax Error! See Help > SuperSpam Scripting for help.", "SuperSpam Scripting Engine", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
             }
+            if (enableRandomIntervalToolStripMenuItem.Checked == true)
+            {
+                randominterval();
+            }
         }
 
         private void tekstOpenenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -432,6 +455,20 @@ namespace SuperSpam
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void enableRandomIntervalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (enableRandomIntervalToolStripMenuItem.Checked == false)
+            {
+                enableRandomIntervalToolStripMenuItem.Checked = true;
+                SpeedControl.Enabled = false;
+            }
+            else
+            {
+                enableRandomIntervalToolStripMenuItem.Checked = false;
+                SpeedControl.Enabled = true;
+            }
         }
     }
 }

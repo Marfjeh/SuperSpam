@@ -71,6 +71,12 @@ namespace SuperSpam
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.alertTimer = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.randomIntervalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.enableRandomIntervalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedControl)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -307,6 +313,7 @@ namespace SuperSpam
             // 
             this.instellingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enterToetsVerzendenToolStripMenuItem,
+            this.randomIntervalToolStripMenuItem,
             this.gameToetsToolStripMenuItem});
             this.instellingenToolStripMenuItem.Name = "instellingenToolStripMenuItem";
             this.instellingenToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
@@ -431,6 +438,47 @@ namespace SuperSpam
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // randomIntervalToolStripMenuItem
+            // 
+            this.randomIntervalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1,
+            this.toolStripSeparator3,
+            this.toolStripTextBox2,
+            this.toolStripSeparator4,
+            this.enableRandomIntervalToolStripMenuItem});
+            this.randomIntervalToolStripMenuItem.Name = "randomIntervalToolStripMenuItem";
+            this.randomIntervalToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.randomIntervalToolStripMenuItem.Text = "Random Interval";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "100";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(196, 6);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox2.Text = "5000";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(196, 6);
+            // 
+            // enableRandomIntervalToolStripMenuItem
+            // 
+            this.enableRandomIntervalToolStripMenuItem.Name = "enableRandomIntervalToolStripMenuItem";
+            this.enableRandomIntervalToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.enableRandomIntervalToolStripMenuItem.Text = "Enable Random Interval";
+            this.enableRandomIntervalToolStripMenuItem.Click += new System.EventHandler(this.enableRandomIntervalToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -501,6 +549,12 @@ namespace SuperSpam
         private ToolStripMenuItem programsToolStripMenuItem;
         private ToolStripMenuItem superSpamHtmlFlooderToolStripMenuItem;
         private ToolStripMenuItem superSpamMouseToolStripMenuItem;
+        private ToolStripMenuItem randomIntervalToolStripMenuItem;
+        private ToolStripTextBox toolStripTextBox1;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripTextBox toolStripTextBox2;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripMenuItem enableRandomIntervalToolStripMenuItem;
     }
 }
 
