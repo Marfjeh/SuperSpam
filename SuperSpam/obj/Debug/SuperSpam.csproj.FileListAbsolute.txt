@@ -125,10 +125,7 @@ C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.exe.mani
 C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.application
 C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.exe
 C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam.pdb
-C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\AeroGlass.dll
 C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\InputSimulator.dll
-C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam Html Flooder.exe
-C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\bin\Debug\SuperSpam Html Flooder.pdb
 C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.TrustInfo.xml
 C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.exe.manifest
 C:\Users\Marvi\Documents\GitHub\SuperSpam\SuperSpam\obj\Debug\SuperSpam.application

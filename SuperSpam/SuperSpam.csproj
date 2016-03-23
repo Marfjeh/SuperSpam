@@ -89,9 +89,6 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AeroGlass">
-      <HintPath>.\AeroGlass.dll</HintPath>
-    </Reference>
     <Reference Include="InputSimulator">
       <HintPath>.\InputSimulator.dll</HintPath>
     </Reference>
@@ -194,12 +191,6 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SuperSpam Html Flooder\SuperSpam Html Flooder\SuperSpam Html Flooder.csproj">
-      <Project>{53731b63-aef9-4032-880e-83f8304e6879}</Project>
-      <Name>SuperSpam Html Flooder</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

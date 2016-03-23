@@ -14,14 +14,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="SuperSpam.exe.manifest" size="7609">
+    <dependentAssembly dependencyType="install" codebase="SuperSpam.exe.manifest" size="6312">
       <assemblyIdentity name="SuperSpam.exe" version="2.3.14.0" publicKeyToken="0000000000000000" language="nl-NL" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3lq2vdF51nTQ6hGkHa30f8npvy5ZK6PS/jBVl5PsY20=</dsig:DigestValue>
+        <dsig:DigestValue>NZrdHHzi4gBpctQmD3Hu0R7dTSjNv/H8RJTq720HfoI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -28,9 +28,9 @@ namespace SuperSpam
         int version_int = 250;
 
         // Build info
-        int buildnum = 203;
+        int buildnum = 208;
         string buildtype = "Pre-Alpha";
-        string builddate = "21-3-2016";
+        string builddate = "23-3-2016";
         string codename = "engliesh";
 
         //Update System
