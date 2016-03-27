@@ -86,8 +86,11 @@ namespace SuperSpam
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MouseEngine = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ControlPanel.SuspendLayout();
@@ -99,6 +102,9 @@ namespace SuperSpam
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ControlPanel
@@ -499,6 +505,7 @@ namespace SuperSpam
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 51);
             this.tabControl1.Name = "tabControl1";
@@ -594,8 +601,7 @@ namespace SuperSpam
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.listBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -604,24 +610,56 @@ namespace SuperSpam
             this.tabPage3.Text = "Mouse";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // listBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 238);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "i heard u like Comic Sans  :P";
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(170, 27);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(200, 212);
+            this.listBox2.TabIndex = 0;
             // 
-            // label1
+            // tabPage4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(207, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 52);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Soon!";
+            this.tabPage4.Controls.Add(this.pictureBox2);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.pictureBox1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(543, 269);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "About";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(352, 188);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(188, 78);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Secret text here :)\r\n";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SuperSpam.Properties.Resources.logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(543, 50);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // backgroundWorker1
             // 
@@ -658,7 +696,10 @@ namespace SuperSpam
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,12 +759,15 @@ namespace SuperSpam
         private Button button2;
         private CheckBox checkBox1;
         private TabPage tabPage3;
-        private Label label2;
-        private Label label1;
         private Timer MouseEngine;
         private ToolStripMenuItem comicSansModeToolStripMenuItem;
         private ToolStripMenuItem readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private TabPage tabPage4;
+        private Label label3;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private ListBox listBox2;
     }
 }
 

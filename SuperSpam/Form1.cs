@@ -23,13 +23,14 @@ namespace SuperSpam
 
     public partial class Form1 : Form
     {
+
         // Version Info
         Process currentProc = Process.GetCurrentProcess();
         string versie = "2.5.0";
         int version_int = 250;
 
         // Build info
-        int buildnum = 212;
+        int buildnum = 213;
         string buildtype = "Beta";
         string builddate = "24-3-2016";
         string codename = "Revolution";
@@ -222,7 +223,8 @@ namespace SuperSpam
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
+        {
+            label3.Text = "SuperSpam Version: " + versie + " Build: " + buildnum + "\n\nSuperSpam is made by Marvin Ferwerda, \nThis software is made for entertainment purposes and nothing more. \nI Marvin Ferwerda am not resposible for any results that are caused by and or via this program \nOnly use it at your own risk.\n\n\n\nThanks to:\nSadusko, for the better updater system.\nCp_022 for translating some of the text \nMegaXLR For ideas/suggestions in the github page.";
             toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
             debuglog("SuperSpam Bootstrapper Started.", "info");
             debuglog("SuperSpam " + versie + " Build: " + buildnum + " " + buildtype, "info");
@@ -339,6 +341,24 @@ namespace SuperSpam
 
         }
 
+        public void enablecontrolp(int setting)
+        {
+            if (setting == 1)
+            {
+                StopSpam.Enabled = true;
+                StartSpam.Enabled = true;
+                SpeedControl.Enabled = true;
+                EngineChoser.Enabled = true;
+            }
+            else
+            {
+                StopSpam.Enabled = false;
+                StartSpam.Enabled = false;
+                SpeedControl.Enabled = false;
+                EngineChoser.Enabled = false;
+            }
+        }
+
         private void afteller_Tick(object sender, EventArgs e)
         {
             int aftel = Convert.ToInt32(Counter.Text);
@@ -443,8 +463,9 @@ namespace SuperSpam
 
         private void overSuperSpamToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectTab(3);
             //Thanks to Cp022 to Translate this part!
-            MessageBox.Show("SuperSpam Version: " + versie + " Build: " + buildnum + "\n\nSuperSpam is made by Marvin Ferwerda, \nThis software is made for entertainment purposes and nothing more. \nI Marvin Ferwerda am not resposible for any results that are caused by and or via this program \nOnly use it at your own risk.\n\n\n\n Thanks to:\nSadusko, for the better updater system.\nCp_022 for translating some of the text \nMegaXLR For ideas/suggestions in the github page.", "About SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("SuperSpam Version: " + versie + " Build: " + buildnum + "\n\nSuperSpam is made by Marvin Ferwerda, \nThis software is made for entertainment purposes and nothing more. \nI Marvin Ferwerda am not resposible for any results that are caused by and or via this program \nOnly use it at your own risk.\n\n\n\n Thanks to:\nSadusko, for the better updater system.\nCp_022 for translating some of the text \nMegaXLR For ideas/suggestions in the github page.", "About SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void nieuwToolStripMenuItem_Click(object sender, EventArgs e)
@@ -592,6 +613,7 @@ namespace SuperSpam
                         tekstOpenenToolStripMenuItem.Enabled = true;
                         readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = false;
                         readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "none";
+                        enablecontrolp(1);
                     }
                     break;
                 case 1:
@@ -602,6 +624,19 @@ namespace SuperSpam
                         tekstOpenenToolStripMenuItem.Enabled = false;
                         readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = true;
                         readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "Read and Write files in ArrayMode is at this moment not impented.";
+                        enablecontrolp(1);
+                    }
+                    break;
+                case 2:
+                    {
+                        tabcontrolgeselecteerd = 2;
+                        enablecontrolp(0);
+                    }
+                    break;
+                case 3:
+                    {
+                        tabcontrolgeselecteerd = 3;
+                        enablecontrolp(0);
                     }
                     break;
             }

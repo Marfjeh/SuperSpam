@@ -76,10 +76,7 @@ D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\SuperSpam.exe.man
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\SuperSpam.application
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\SuperSpam.exe
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\SuperSpam.pdb
-D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\AeroGlass.dll
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\InputSimulator.dll
-D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\SuperSpam Html Flooder.exe
-D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\bin\Release\SuperSpam Html Flooder.pdb
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Release\SuperSpam.csprojResolveAssemblyReference.cache
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Release\SuperSpam.Form1.resources
 D:\Users\Marf\Documents\GitHub\SuperSpam\SuperSpam\obj\Release\SuperSpam.Form2.resources

@@ -166,6 +166,7 @@
     <None Include="Resources\images.jpg" />
     <None Include="Resources\color[1].png" />
     <None Include="Resources\close-button.gif" />
+    <None Include="Resources\logo.png" />
     <Content Include="SS_new_Icon.ico" />
     <None Include="Resources\Untitled-1.png" />
     <None Include="Resources\519791-101_Warning-128[1].png" />
