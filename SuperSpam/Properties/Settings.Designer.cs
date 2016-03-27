@@ -25,22 +25,10 @@ namespace SuperSpam.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Kleur {
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int EngineSnelheid {
             get {
-                return ((string)(this["Kleur"]));
-            }
-            set {
-                this["Kleur"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string EngineSnelheid {
-            get {
-                return ((string)(this["EngineSnelheid"]));
+                return ((int)(this["EngineSnelheid"]));
             }
             set {
                 this["EngineSnelheid"] = value;
@@ -49,37 +37,34 @@ namespace SuperSpam.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string instapToets {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string Engine {
             get {
-                return ((string)(this["instapToets"]));
+                return ((string)(this["Engine"]));
             }
             set {
-                this["instapToets"] = value;
+                this["Engine"] = value;
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Aero {
-            get {
-                return ((bool)(this["Aero"]));
-            }
-            set {
-                this["Aero"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("t4EpSJid-7UDegvSS-yB5E5eqK-6e9BedBa-SHFCjz59-qL6yzygQ-5eJqDwG8-cvEDcpid ")]
         public string BetaKey {
             get {
                 return ((string)(this["BetaKey"]));
             }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int last_tab {
+            get {
+                return ((int)(this["last_tab"]));
+            }
             set {
-                this["BetaKey"] = value;
+                this["last_tab"] = value;
             }
         }
     }

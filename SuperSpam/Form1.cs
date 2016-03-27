@@ -1,4 +1,4 @@
-﻿/// Thanks to Sadusko for the new updater system
+﻿// Thanks to Sadusko for the new updater system
 
 using System;
 using System.Collections.Generic;
@@ -15,6 +15,7 @@ using System.Diagnostics;
 using WindowsInput;
 using System.IO;
 using System.Web;
+using System.Configuration;
 
 
 namespace SuperSpam
@@ -28,10 +29,10 @@ namespace SuperSpam
         int version_int = 250;
 
         // Build info
-        int buildnum = 210;
-        string buildtype = "Pre-Alpha";
-        string builddate = "23-3-2016";
-        string codename = "engliesh";
+        int buildnum = 212;
+        string buildtype = "Beta";
+        string builddate = "24-3-2016";
+        string codename = "Revolution";
 
         //Update System
         string updateserver = "http://www.sweetnyancraft.nl/projects/Super/SuperSpam.exe";
@@ -49,6 +50,9 @@ namespace SuperSpam
 
         //See how many cpu cores there is, maybe useful for multithreading in the future
         string cpus = Environment.ProcessorCount.ToString();
+        public int tabcontrolgeselecteerd = 0;
+
+        public object ConfigurationManager { get; private set; }
 
         //end
 
@@ -78,30 +82,114 @@ namespace SuperSpam
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (tabcontrolgeselecteerd == 0 && textBox1.Text == "")
             {
                 MessageBox.Show("You cant spam if you dont have anything in the textbox...", "SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            else if (tabcontrolgeselecteerd == 1 && listBox1.Items.Count == 0)
+            {
+                MessageBox.Show("Your Array is empty.", "SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             else
             {
-            EngineChoser.Enabled = false;
-            Counter.Visible = true;
-            afteller.Enabled = true;
-            debuglog("SuperSpam " + EngineChoser.Text  + " Begint. Wacht 5 seconden...", "Engine");
+                EngineChoser.Enabled = false;
+                Counter.Visible = true;
+                afteller.Enabled = true;
+                debuglog("SuperSpam " + EngineChoser.Text + " Begint. Wacht 5 seconden...", "Engine");
+                if (tabcontrolgeselecteerd == 1)
+                {
+                    listBox1.SelectedIndex = 0;
+                }
+
             }
         }
 
-        private void SuperSpamEngine_Tick(object sender, EventArgs e)
+        private void arrayspam()
         {
-            if (enterToetsVerzendenToolStripMenuItem.Checked == true)
+            if (tabcontrolgeselecteerd == 1)
             {
-                InputSimulator.SimulateTextEntry(textBox1.Text);
-                InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
+
+                if (EngineChoser.Text == "Engine 1")
+                {
+                    try
+                    {
+                        InputSimulator.SimulateTextEntry((string)listBox1.SelectedItem);
+                        if (enterToetsVerzendenToolStripMenuItem.Checked == true)
+                        { InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN); }
+
+                        if (checkBox1.Checked == false)
+                        {
+                            listBox1.SelectedIndex = listBox1.SelectedIndex + 1;
+                        }
+                        else
+                        {
+                            Random random = new Random();
+                            int randomNumber = random.Next(0, listBox1.Items.Count);
+                            listBox1.SelectedIndex = randomNumber;
+                        }
+                    }
+                    catch
+                    {
+                        if (checkBox1.Checked == false)
+                        {
+                            listBox1.SelectedIndex = 0;
+                        }
+                        else
+                        {
+                            Random random = new Random();
+                            int randomNumber = random.Next(0, listBox1.Items.Count);
+                            listBox1.SelectedIndex = randomNumber;
+                        }
+                    }
+                }
             }
             else
             {
-                InputSimulator.SimulateTextEntry(textBox1.Text);
+                try
+                {
+                    SendKeys.Send((string)listBox1.SelectedItem);
+                    if (enterToetsVerzendenToolStripMenuItem.Checked == true)
+                    {
+                        SendKeys.Send("{ENTER}");
+                    }
+                    if (checkBox1.Checked == false)
+                    {
+                        listBox1.SelectedIndex = listBox1.SelectedIndex + 1;
+                    }
+                    else
+                    {
+                        Random random = new Random();
+                        int randomNumber = random.Next(0, listBox1.Items.Count);
+                        listBox1.SelectedIndex = randomNumber;
+                    }
+                }
+                catch
+                {
+                    listBox1.SelectedIndex = 0;
+                }
             }
+        }
+
+
+        private void SuperSpamEngine_Tick(object sender, EventArgs e)
+        {
+            if (tabcontrolgeselecteerd == 0)
+            {
+                if (enterToetsVerzendenToolStripMenuItem.Checked == true)
+                {
+                    InputSimulator.SimulateTextEntry(textBox1.Text);
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
+                }
+                else
+                {
+                    InputSimulator.SimulateTextEntry(textBox1.Text);
+                }
+            }
+            else
+            {
+                arrayspam();
+            }
+
             if (enableRandomIntervalToolStripMenuItem.Checked == true)
             {
                 randominterval();
@@ -118,7 +206,7 @@ namespace SuperSpam
 
             SuperSpamEngine.Interval = rInt;
             OldSuperSpamEngine.Interval = rInt;
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -134,11 +222,11 @@ namespace SuperSpam
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        { 
             toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
             debuglog("SuperSpam Bootstrapper Started.", "info");
             debuglog("SuperSpam " + versie + " Build: " + buildnum + " " + buildtype, "info");
-            this.Text = "SuperSpam² " + versie;
+            this.Text = "SuperSpam " + versie;
             VersionInfoLabel.Text = "Made by: Marf Ver: " + versie;
             stop_gui();
             int interval = Convert.ToInt32(SpeedControl.Value);
@@ -186,12 +274,7 @@ namespace SuperSpam
                     float old_v = float.Parse(versie);
                     float new_v = float.Parse(new_version);
 
-                    /*
-                    WebClient wb = new WebClient("je porn website.");
-                    StreamReader sr = new StreamReader(wb);
-
-
-
+                   
                     debuglog("Checkt voor nieuwe versie...", "Activatie_thread");
                     //http://stackoverflow.com/questions/2471209/how-to-read-a-file-from-internet 
 
@@ -214,7 +297,7 @@ namespace SuperSpam
                         debuglog("Nieuwe versie gevonden, " + new_version, "Activatie_thread");
 
                     }
-                    debuglog("Versie online: " + new_version + " Deze versie: " + versie, "info");*/
+                    debuglog("Versie online: " + new_version + " Deze versie: " + versie, "info");
                 }
                 catch (Exception b)
                 {
@@ -242,22 +325,24 @@ namespace SuperSpam
         public void stop_gui()
         {
             ControlPanel.Visible = false;
-            textBox1.Visible = false;
             menuStrip1.Visible = false;
+            tabControl1.Visible = false;
+            statusStrip1.Visible = false;
         }
 
         public void start_gui()
         {
             ControlPanel.Visible = true;
-            textBox1.Visible = true;
+            tabControl1.Visible = true;
             menuStrip1.Visible = true;
+            statusStrip1.Visible = true;
 
         }
 
         private void afteller_Tick(object sender, EventArgs e)
         {
             int aftel = Convert.ToInt32(Counter.Text);
-            
+
             if (aftel == 0)
             {
                 afteller.Enabled = false;
@@ -281,46 +366,53 @@ namespace SuperSpam
 
         public void ram_clean()
         {
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                GC.Collect();
-                long memory = GC.GetTotalMemory(true);
-                webBrowser1.Dispose();
-                debuglog("GC uitgevoerd.", "Info");
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            long memory = GC.GetTotalMemory(true);
+            webBrowser1.Dispose();
+            debuglog("GC uitgevoerd.", "Info");
         }
 
-        public void debuglog( string e, string a )
+        public void debuglog(string e, string a)
         {
             string tijd = DateTime.Now.ToString("HH:mm:ss.fff", System.Globalization.DateTimeFormatInfo.InvariantInfo);
             Debug.WriteLine("[" + tijd + "|" + a + "] " + e);
-           
+
         }
 
         private void OldSuperSpamEngine_Tick(object sender, EventArgs e)
         {
-            if (enterToetsVerzendenToolStripMenuItem.Checked == true)
+            if (tabcontrolgeselecteerd == 0)
             {
-                try
+                if (enterToetsVerzendenToolStripMenuItem.Checked == true)
                 {
-                    SendKeys.Send(textBox1.Text + "{ENTER}");
+                    try
+                    {
+                        SendKeys.Send(textBox1.Text + "{ENTER}");
+                    }
+                    catch
+                    {
+                        SuperSpamEngine.Enabled = false;
+                        MessageBox.Show("Syntax Error! See Help > SuperSpam Scripting for help.", "SuperSpam Scripting Engine", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
                 }
-                catch
+                else
                 {
-                    SuperSpamEngine.Enabled = false;
-                    MessageBox.Show("Syntax Error! See Help > SuperSpam Scripting for help.", "SuperSpam Scripting Engine", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    try
+                    {
+                        SendKeys.Send(textBox1.Text);
+                    }
+                    catch
+                    {
+                        SuperSpamEngine.Enabled = false;
+                        MessageBox.Show("Syntax Error! See Help > SuperSpam Scripting for help.", "SuperSpam Scripting Engine", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
                 }
             }
             else
             {
-                try
-                {
-                    SendKeys.Send(textBox1.Text);
-                }
-                catch
-                {
-                    SuperSpamEngine.Enabled = false;
-                    MessageBox.Show("Syntax Error! See Help > SuperSpam Scripting for help.", "SuperSpam Scripting Engine", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                }
+                arrayspam();
             }
             if (enableRandomIntervalToolStripMenuItem.Checked == true)
             {
@@ -352,7 +444,7 @@ namespace SuperSpam
         private void overSuperSpamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Thanks to Cp022 to Translate this part!
-            MessageBox.Show("SuperSpam Version: " + versie + " Build: " + buildnum + "\n\nSuperSpam is made by Marvin Ferwerda, \nThis software is made for entertainment purposes and nothing more. \nI Marvin Ferwerda am not resposible for any results that are caused by and or via this program \nOnly use it at your own risk.", "About SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("SuperSpam Version: " + versie + " Build: " + buildnum + "\n\nSuperSpam is made by Marvin Ferwerda, \nThis software is made for entertainment purposes and nothing more. \nI Marvin Ferwerda am not resposible for any results that are caused by and or via this program \nOnly use it at your own risk.\n\n\n\n Thanks to:\nSadusko, for the better updater system.\nCp_022 for translating some of the text \nMegaXLR For ideas/suggestions in the github page.", "About SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void nieuwToolStripMenuItem_Click(object sender, EventArgs e)
@@ -364,29 +456,29 @@ namespace SuperSpam
             }
             else if (dialogResult == DialogResult.No)
             {
-                
+
             }
         }
 
         private void debuggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-                long memoryUsed = currentProc.PrivateMemorySize64;
-                long naarmb = 1024 * 1024;
-                MessageBox.Show("------------------DEBUG------------------\n"
-                    + "\nBuild in: C#"
-                    + "\nBuild: " + buildnum
-                    + "\nbuild type: " + buildtype
-                    + "\nbuild date: " + builddate
-                    + "\n64Bit process: " + in64now
-                    + "\nCpu count: " + cpus
-                    + "\nDebug mode: " + Debug_mode
-                    + "\nSpamEngine in use: " + EngineChoser.Text
-                    + "\nSpamEngine Status: " + SuperSpamEngine.Enabled.ToString()
-                    + "\nSpamEngine Interval: " + SuperSpamEngine.Interval.ToString()
-                    + "\nSuperSpam Memory usage: " + memoryUsed / naarmb + " MB. Bytes: " + memoryUsed, "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            
+
+            long memoryUsed = currentProc.PrivateMemorySize64;
+            long naarmb = 1024 * 1024;
+            MessageBox.Show("------------------DEBUG------------------\n"
+                + "\nBuild in: C#"
+                + "\nBuild: " + buildnum
+                + "\nbuild type: " + buildtype
+                + "\nbuild date: " + builddate
+                + "\n64Bit process: " + in64now
+                + "\nCpu count: " + cpus
+                + "\nDebug mode: " + Debug_mode
+                + "\nSpamEngine in use: " + EngineChoser.Text
+                + "\nSpamEngine Status: " + SuperSpamEngine.Enabled.ToString()
+                + "\nSpamEngine Interval: " + SuperSpamEngine.Interval.ToString()
+                + "\nSuperSpam Memory usage: " + memoryUsed / naarmb + " MB. Bytes: " + memoryUsed, "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
         }
 
         private void nieuweVersieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -473,7 +565,7 @@ namespace SuperSpam
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string promptValue = Prompt.ShowDialog("Text Toevroegen?", "SuperSpam");
+            string promptValue = Prompt.ShowDialog("Add text to the array", "SuperSpam");
             listBox1.Items.Add(promptValue);
         }
 
@@ -483,6 +575,56 @@ namespace SuperSpam
             {
                 this.listBox1.Items.RemoveAt(this.listBox1.SelectedIndex);
             }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.last_tab = tabcontrolgeselecteerd;
+            SuperSpamEngine.Enabled = false;
+            OldSuperSpamEngine.Enabled = false;
+            switch (tabControl1.SelectedIndex)
+            {
+                case 0:
+                    {
+                        tabcontrolgeselecteerd = 0;
+                        nieuwToolStripMenuItem.Enabled = true;
+                        tekstOpslaanAlsToolStripMenuItem.Enabled = true;
+                        tekstOpenenToolStripMenuItem.Enabled = true;
+                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = false;
+                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "none";
+                    }
+                    break;
+                case 1:
+                    {
+                        tabcontrolgeselecteerd = 1;
+                        nieuwToolStripMenuItem.Enabled = false;
+                        tekstOpslaanAlsToolStripMenuItem.Enabled = false;
+                        tekstOpenenToolStripMenuItem.Enabled = false;
+                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = true;
+                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "Read and Write files in ArrayMode is at this moment not impented.";
+                    }
+                    break;
+            }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+        }
+
+        private void comicSansModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Font = new Font("Comic Sans MS", 12, FontStyle.Regular);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Properties.Settings.Default.Save();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }
