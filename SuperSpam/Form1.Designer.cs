@@ -66,6 +66,8 @@ namespace SuperSpam
             this.enableRandomIntervalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameToetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.allowBetaUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlinehelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overSuperSpamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,14 +83,18 @@ namespace SuperSpam
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MouseEngine = new System.Windows.Forms.Timer(this.components);
@@ -348,7 +354,9 @@ namespace SuperSpam
             this.instellingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enterToetsVerzendenToolStripMenuItem,
             this.randomIntervalToolStripMenuItem,
-            this.gameToetsToolStripMenuItem});
+            this.gameToetsToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.allowBetaUpdatesToolStripMenuItem});
             this.instellingenToolStripMenuItem.Name = "instellingenToolStripMenuItem";
             this.instellingenToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.instellingenToolStripMenuItem.Text = "Settings";
@@ -358,8 +366,8 @@ namespace SuperSpam
             this.enterToetsVerzendenToolStripMenuItem.Checked = true;
             this.enterToetsVerzendenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.enterToetsVerzendenToolStripMenuItem.Name = "enterToetsVerzendenToolStripMenuItem";
-            this.enterToetsVerzendenToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.enterToetsVerzendenToolStripMenuItem.Text = "Send Enter key after line";
+            this.enterToetsVerzendenToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.enterToetsVerzendenToolStripMenuItem.Text = "Send Enter keypress after every line";
             this.enterToetsVerzendenToolStripMenuItem.Click += new System.EventHandler(this.enterToetsVerzendenToolStripMenuItem_Click);
             // 
             // randomIntervalToolStripMenuItem
@@ -371,14 +379,13 @@ namespace SuperSpam
             this.toolStripSeparator4,
             this.enableRandomIntervalToolStripMenuItem});
             this.randomIntervalToolStripMenuItem.Name = "randomIntervalToolStripMenuItem";
-            this.randomIntervalToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.randomIntervalToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.randomIntervalToolStripMenuItem.Text = "Random Interval";
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox1.Text = "100";
             // 
             // toolStripSeparator3
             // 
@@ -389,7 +396,6 @@ namespace SuperSpam
             // 
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox2.Text = "5000";
             // 
             // toolStripSeparator4
             // 
@@ -408,14 +414,25 @@ namespace SuperSpam
             this.gameToetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tToolStripMenuItem});
             this.gameToetsToolStripMenuItem.Name = "gameToetsToolStripMenuItem";
-            this.gameToetsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.gameToetsToolStripMenuItem.Text = "Game key";
+            this.gameToetsToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.gameToetsToolStripMenuItem.Text = "Game key (WIP)";
             // 
             // tToolStripMenuItem
             // 
             this.tToolStripMenuItem.Name = "tToolStripMenuItem";
             this.tToolStripMenuItem.Size = new System.Drawing.Size(81, 22);
             this.tToolStripMenuItem.Text = "T";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(255, 6);
+            // 
+            // allowBetaUpdatesToolStripMenuItem
+            // 
+            this.allowBetaUpdatesToolStripMenuItem.Name = "allowBetaUpdatesToolStripMenuItem";
+            this.allowBetaUpdatesToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.allowBetaUpdatesToolStripMenuItem.Text = "Allow Beta/Pre-Release Updates";
             // 
             // helpToolStripMenuItem
             // 
@@ -549,6 +566,7 @@ namespace SuperSpam
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
@@ -559,10 +577,20 @@ namespace SuperSpam
             this.panel1.Size = new System.Drawing.Size(537, 36);
             this.panel1.TabIndex = 0;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(248, 6);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(92, 23);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Edit Selected";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(248, 10);
+            this.checkBox1.Location = new System.Drawing.Point(346, 10);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(66, 17);
             this.checkBox1.TabIndex = 3;
@@ -601,6 +629,7 @@ namespace SuperSpam
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.listBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -610,17 +639,30 @@ namespace SuperSpam
             this.tabPage3.Text = "Mouse";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 104);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Press c to left click\r\n\r\nPress d to Double click\r\n\r\nPress r to right click\r\n\r\nKee" +
+    "p this window active \r\nto set location for mouse";
+            // 
             // listBox2
             // 
+            this.listBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(170, 27);
+            this.listBox2.Location = new System.Drawing.Point(140, 3);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(200, 212);
+            this.listBox2.Size = new System.Drawing.Size(400, 263);
             this.listBox2.TabIndex = 0;
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.linkLabel1);
             this.tabPage4.Controls.Add(this.pictureBox2);
+            this.tabPage4.Controls.Add(this.label2);
             this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.pictureBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -630,25 +672,46 @@ namespace SuperSpam
             this.tabPage4.Text = "About";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(404, 253);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(133, 13);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Check out my Github page";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(352, 188);
+            this.pictureBox2.Location = new System.Drawing.Point(349, 172);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(188, 78);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(446, 156);
+            this.label2.TabIndex = 3;
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Secret text here :)\r\n";
+            this.label3.Text = "Version text";
             // 
             // pictureBox1
             // 
@@ -696,6 +759,7 @@ namespace SuperSpam
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -768,6 +832,12 @@ namespace SuperSpam
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private ListBox listBox2;
+        private Button button5;
+        private Label label1;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripMenuItem allowBetaUpdatesToolStripMenuItem;
+        private LinkLabel linkLabel1;
+        private Label label2;
     }
 }
 

@@ -30,9 +30,9 @@ namespace SuperSpam
         int version_int = 250;
 
         // Build info
-        int buildnum = 213;
-        string buildtype = "Beta";
-        string builddate = "24-3-2016";
+        int buildnum = 216;
+        string buildtype = "Pre-Release";
+        string builddate = "29-3-2016";
         string codename = "Revolution";
 
         //Update System
@@ -40,6 +40,8 @@ namespace SuperSpam
         string server = "http://www.sweetnyancraft.nl/projects/Super/index.html";
         public string changelog = "http://www.sweetnyancraft.nl/projects/Super/changelog.html"; // niet in gebruik
         public string new_version = "";
+        public string new_build = "";
+        public string new_version_int = "";
 
         //Kill Switch
         string kill = "1";
@@ -47,7 +49,7 @@ namespace SuperSpam
 
         //Debugging
         Boolean in64now = Environment.Is64BitProcess;
-        Boolean Debug_mode = true;
+        Boolean Debug_mode = false;
 
         //See how many cpu cores there is, maybe useful for multithreading in the future
         string cpus = Environment.ProcessorCount.ToString();
@@ -224,7 +226,7 @@ namespace SuperSpam
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            label3.Text = "SuperSpam Version: " + versie + " Build: " + buildnum + "\n\nSuperSpam is made by Marvin Ferwerda, \nThis software is made for entertainment purposes and nothing more. \nI Marvin Ferwerda am not resposible for any results that are caused by and or via this program \nOnly use it at your own risk.\n\n\n\nThanks to:\nSadusko, for the better updater system.\nCp_022 for translating some of the text \nMegaXLR For ideas/suggestions in the github page.";
+            label3.Text = "SuperSpam Version: " + versie + " Build: " + buildnum;
             toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
             debuglog("SuperSpam Bootstrapper Started.", "info");
             debuglog("SuperSpam " + versie + " Build: " + buildnum + " " + buildtype, "info");
@@ -253,9 +255,13 @@ namespace SuperSpam
             {
                 try
                 {
+
                     new_version = webBrowser1.Document.GetElementById("new_version").OuterText;
                     kill = webBrowser1.Document.GetElementById("Kill_Switch").OuterText;
                     new_date = webBrowser1.Document.GetElementById("date").OuterText;
+                    new_build = webBrowser1.Document.GetElementById("beta_build").OuterText;
+                    new_version_int = webBrowser1.Document.GetElementById("new_version_int").OuterText;
+
                     int killer = Convert.ToInt32(kill);
                     debuglog("Loaded.", "Activatie_thread");
 
@@ -273,13 +279,11 @@ namespace SuperSpam
                     }
 
                     // update checker
-                    float old_v = float.Parse(versie);
-                    float new_v = float.Parse(new_version);
+                    int old_v = version_int;
+                    int new_v = int.Parse(new_version_int);
 
                    
                     debuglog("Checkt voor nieuwe versie...", "Activatie_thread");
-                    //http://stackoverflow.com/questions/2471209/how-to-read-a-file-from-internet 
-
                     
                     if (old_v == new_v)
                     {
@@ -586,7 +590,7 @@ namespace SuperSpam
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string promptValue = Prompt.ShowDialog("Add text to the array", "SuperSpam");
+            string promptValue = Prompt.ShowDialog("Add text to the array", "SuperSpam", null);
             listBox1.Items.Add(promptValue);
         }
 
@@ -661,14 +665,32 @@ namespace SuperSpam
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex >= 0)
+            {
+                int selected = listBox1.SelectedIndex;
+                string data = Prompt.ShowDialog("Edit Selected", "SuperSpam", (string)listBox1.SelectedItem);
+                listBox1.Items.RemoveAt(selected);
+                listBox1.Items.Insert(selected, data);
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Marfjeh");
+        }
     }
 }
 
 //string promptValue = Prompt.ShowDialog("Test", "123");
 public static class Prompt
 {
-    public static string ShowDialog(string text, string caption)
+    public static string ShowDialog(string text, string caption, string textboxdata)
     {
+        if (textboxdata == null)
+        { textboxdata = ""; }
         Form prompt = new Form()
         {
             Width = 500,
@@ -679,7 +701,7 @@ public static class Prompt
             ControlBox = false
         };
         Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
-        TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+        TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400, Text = textboxdata };
         Button confirmation = new Button() { Text = "OK", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
         confirmation.Click += (sender, e) => { prompt.Close(); };
         prompt.Controls.Add(textBox);

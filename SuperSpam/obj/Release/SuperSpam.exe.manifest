@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="356864">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SuperSpam.exe" size="148992">
       <assemblyIdentity name="SuperSpam" version="2.5.0.200" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mQlvPwJP1wFrCHziiw2VcCS0Lom5X2RhjCGxeqC7ZSY=</dsig:DigestValue>
+        <dsig:DigestValue>ELItZPlthaxL6o9nVcg6lK2utO9T3QrhRdSQwrHtLAg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -84,13 +84,13 @@
       <dsig:DigestValue>+9LJL0epu1MqxvYRDrdnxog5XNQGj0VjFNVafav8OXI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SuperSpam.exe.config" size="1899">
+  <file name="SuperSpam.exe.config" size="2025">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>EorOhbzhFVUwq51sMnY3oXFU+Se1y2gEx21n9wAJBtQ=</dsig:DigestValue>
+      <dsig:DigestValue>ct3KsvgLF8xyQv0h7RXlO3YzHodLQG1x4fRWLUnp/p4=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

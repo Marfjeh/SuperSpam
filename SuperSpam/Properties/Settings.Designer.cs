@@ -67,5 +67,17 @@ namespace SuperSpam.Properties {
                 this["last_tab"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Beta_updates {
+            get {
+                return ((bool)(this["Beta_updates"]));
+            }
+            set {
+                this["Beta_updates"] = value;
+            }
+        }
     }
 }
