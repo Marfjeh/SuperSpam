@@ -43,7 +43,7 @@ namespace SuperSpam
             }
             catch (Exception e)
             {
-                MessageBox.Show("CRASH! \n\nException:\n" + e, "SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("CRASH!\nPlease make a screenshot, and report it to marf it will help the project! \n\nException:\n" + e, "SuperSpam CrashCatcher", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
 
             // End the communication thread.

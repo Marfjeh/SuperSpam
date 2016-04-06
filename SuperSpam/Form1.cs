@@ -1,6 +1,4 @@
-﻿// Thanks to Sadusko for the new updater system
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,21 +28,23 @@ namespace SuperSpam
         int version_int = 250;
 
         // Build info
-        int buildnum = 218;
+        int buildnum = 221;
         string buildtype = "Pre-Release";
-        string builddate = "29-3-2016";
-        string codename = "Revolution";
+        string builddate = "6-4-2016";
+        string codename = "SAY IT LOUDER!";
 
         //Update System
-        string updateserver = "http://www.sweetnyancraft.nl/projects/Super/SuperSpam.exe";
-        string updateserverpre = "http://www.sweetnyancraft.nl/projects/Super/pre.exe";
-        string updateserver2 = "";
-        string server = "http://www.sweetnyancraft.nl/projects/Super/index.html";
-        public string changelog = "http://www.sweetnyancraft.nl/projects/Super/changelog.html"; // niet in gebruik
+        string updateserver = "http://www.marfprojects.nl/projects/Super/SuperSpam.exe";
+        string updateserverpre = "http://www.marfprojects.nl/projects/Super/pre.exe";
+
+        string server = "http://www.marfprojects.nl/projects/Super/index.html";
+        public string changelog = "http://www.marfprojects.nl/projects/Super/changelog.html"; // not in use
         public string new_version = "";
         public string new_build = "";
         public string new_version_int = "";
         public Boolean Buildupdater = true; //Allowing Beta/Pre-Release Updates.
+
+        public Boolean ingorealert = false; //Allowing users to ingore alerts after pressing X.
 
         //Kill Switch
         string kill = "1";
@@ -52,7 +52,7 @@ namespace SuperSpam
 
         //Debugging
         Boolean in64now = Environment.Is64BitProcess;
-        Boolean Debug_mode = false;
+        Boolean Debug_mode = true;
 
         //See how many cpu cores there is, maybe useful for multithreading in the future
         string cpus = Environment.ProcessorCount.ToString();
@@ -76,16 +76,50 @@ namespace SuperSpam
                 OldSuperSpamEngine.Interval = interval;
                 if (interval < 100)
                 {
+                    statusalert("Speed below 100ms can make programs unstable/laggy!", true, true);
+                }
+                else
+                {
+                    statusalert(null, false, false);
+                }
+            }
+        }
+
+        private void statusalert(string message, Boolean warningicon, Boolean flash)
+        {
+            if (ingorealert == false)
+            {
+                if (flash == true)
+                {
                     alertTimer.Enabled = true;
-                    toolStripStatusLabel1.Text = "Speed below 100ms can make your system unstable!";
                 }
                 else
                 {
                     alertTimer.Enabled = false;
+                }
+
+                if (warningicon == true)
+                {
+                    toolStripStatusLabel1.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+                }
+                else
+                {
+                    toolStripStatusLabel1.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                }
+
+                if (message == "" || message == null)
+                {
                     toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
+                    toolStripStatusLabel1.ForeColor = Color.Black;
+                    button1.Visible = false;
+                }
+                else
+                {
+                    toolStripStatusLabel1.Text = message;
                 }
             }
         }
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (tabcontrolgeselecteerd == 0 && textBox1.Text == "")
@@ -229,7 +263,7 @@ namespace SuperSpam
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            label3.Text = "SuperSpam Version: " + versie + " Build: " + buildnum;
+            label3.Text = "SuperSpam Version: " + versie + " Build: " + buildnum + " Codename: " + codename;
             toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
             debuglog("SuperSpam Bootstrapper Started.", "info");
             debuglog("SuperSpam " + versie + " Build: " + buildnum + " " + buildtype, "info");
@@ -247,8 +281,14 @@ namespace SuperSpam
                 this.Text = "SuperSpam 2 ver: " + versie + " Build: " + buildnum + " " + buildtype + " " + builddate + " DEBUG MODE";
                 start_gui();
                 debuglog("Superspam draait in debug mode", "WARNING");
+                debugToolStripMenuItem.Visible = true;
             }
             debuglog("Begint met verbinden van de server...", "Activatie_thread");
+            if (Buildupdater == true)
+            {
+                allowBetaUpdatesToolStripMenuItem.Checked = true;
+                allowBetaUpdatesToolStripMenuItem.Tag = "Enabled by default because this is an pre-release/beta build.";
+            }
 
         }
 
@@ -295,7 +335,7 @@ namespace SuperSpam
                     }
                     else if (old_v >= new_v)
                     {
-                            VersionInfoLabel.Text = "Versie: " + versie + " Build: " + buildnum + "\n HAI MARF :DDDD";
+                            VersionInfoLabel.Text = "Versie: " + versie + " Build: " + buildnum + "\n Development Version";
                             debuglog("Hoi marf :)", "Activatie_thread");
                     }
                     else
@@ -316,7 +356,7 @@ namespace SuperSpam
                         else if (buildnum >= int.Parse(new_build)) // deze versie is hoger dan die op de server staat.
                         {
                             BuildToolStripMenuItem.Visible = true;
-                            BuildToolStripMenuItem.Text = "debug: " + buildnum.ToString() + "  " + new_build;
+                            BuildToolStripMenuItem.Text = "debug: " + buildnum.ToString() + " Server: " + new_build;
                         }
                         else
                         {
@@ -414,7 +454,6 @@ namespace SuperSpam
             GC.WaitForPendingFinalizers();
             GC.Collect();
             long memory = GC.GetTotalMemory(true);
-            webBrowser1.Dispose();
             debuglog("GC uitgevoerd.", "Info");
         }
 
@@ -584,10 +623,8 @@ namespace SuperSpam
 
         private void button1_Click(object sender, EventArgs e)
         {
-            alertTimer.Enabled = false;
-            toolStripStatusLabel1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
-            button1.Visible = false;
+            statusalert(null, false, false);
+            ingorealert = true;
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -620,6 +657,10 @@ namespace SuperSpam
             if (this.listBox1.SelectedIndex >= 0)
             {
                 this.listBox1.Items.RemoveAt(this.listBox1.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Nothing selected to delete!", "SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -694,6 +735,10 @@ namespace SuperSpam
                 listBox1.Items.RemoveAt(selected);
                 listBox1.Items.Insert(selected, data);
             }
+            else
+            {
+                MessageBox.Show("Nothing selected to edit!", "SuperSpam", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -710,11 +755,12 @@ namespace SuperSpam
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to opt-in for Development builds?\nThey are not guraranteed to be stable, and contains bugs.\n\nIf you want to submit a bug report or even an suggestion/idea, please visit http://www.sweetnyancraft.nl/SuperSpam", "SuperSpam Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to opt-in for Development builds?\nThey are not guraranteed to be stable, and contains bugs.\n\nIf you want to submit a bug report or even an suggestion/idea, please visit http://www.sweetnyancraft.nl/SuperSpam \nAfter pressing yes, Superspam will connect to the server and check for a new build", "SuperSpam Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     allowBetaUpdatesToolStripMenuItem.Checked = true;
                     Buildupdater = true;
+                    webBrowser1.Navigate(server);
                 }
                 else if (dialogResult == DialogResult.No)
                 {
@@ -727,6 +773,13 @@ namespace SuperSpam
         private void BuildToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(updateserverpre);
+        }
+
+        private void crashSuperSpamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int lol = 1;
+            int lol2 = 0;
+            int total = lol / lol2;
         }
     }
 }

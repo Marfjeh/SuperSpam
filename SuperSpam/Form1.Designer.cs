@@ -56,6 +56,8 @@ namespace SuperSpam
             this.debuggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crashSuperSpamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enterToetsVerzendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randomIntervalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +66,11 @@ namespace SuperSpam
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.enableRandomIntervalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.topMinBottomMaxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameToetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
+            this.enableDisableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.allowBetaUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,6 +106,7 @@ namespace SuperSpam
             this.MouseEngine = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label4 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.ControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedControl)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -272,6 +278,7 @@ namespace SuperSpam
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bestandToolStripMenuItem,
+            this.debugToolStripMenuItem,
             this.instellingenToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.nieuweVersieToolStripMenuItem,
@@ -352,6 +359,22 @@ namespace SuperSpam
             this.afsluitenToolStripMenuItem.Text = "Exit";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crashSuperSpamToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.debugToolStripMenuItem.Text = "Debug";
+            this.debugToolStripMenuItem.Visible = false;
+            // 
+            // crashSuperSpamToolStripMenuItem
+            // 
+            this.crashSuperSpamToolStripMenuItem.Name = "crashSuperSpamToolStripMenuItem";
+            this.crashSuperSpamToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.crashSuperSpamToolStripMenuItem.Text = "Crash SuperSpam";
+            this.crashSuperSpamToolStripMenuItem.Click += new System.EventHandler(this.crashSuperSpamToolStripMenuItem_Click);
+            // 
             // instellingenToolStripMenuItem
             // 
             this.instellingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -380,7 +403,9 @@ namespace SuperSpam
             this.toolStripSeparator3,
             this.toolStripTextBox2,
             this.toolStripSeparator4,
-            this.enableRandomIntervalToolStripMenuItem});
+            this.enableRandomIntervalToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.topMinBottomMaxToolStripMenuItem});
             this.randomIntervalToolStripMenuItem.Name = "randomIntervalToolStripMenuItem";
             this.randomIntervalToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.randomIntervalToolStripMenuItem.Text = "Random Interval";
@@ -389,42 +414,63 @@ namespace SuperSpam
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "500";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(196, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(211, 6);
             // 
             // toolStripTextBox2
             // 
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox2.Text = "1000";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(196, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(211, 6);
             // 
             // enableRandomIntervalToolStripMenuItem
             // 
             this.enableRandomIntervalToolStripMenuItem.Name = "enableRandomIntervalToolStripMenuItem";
-            this.enableRandomIntervalToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.enableRandomIntervalToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.enableRandomIntervalToolStripMenuItem.Text = "Enable Random Interval";
             this.enableRandomIntervalToolStripMenuItem.Click += new System.EventHandler(this.enableRandomIntervalToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(211, 6);
+            // 
+            // topMinBottomMaxToolStripMenuItem
+            // 
+            this.topMinBottomMaxToolStripMenuItem.Enabled = false;
+            this.topMinBottomMaxToolStripMenuItem.Name = "topMinBottomMaxToolStripMenuItem";
+            this.topMinBottomMaxToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.topMinBottomMaxToolStripMenuItem.Text = "Top = Min. Bottom = Max.";
             // 
             // gameToetsToolStripMenuItem
             // 
             this.gameToetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tToolStripMenuItem});
+            this.toolStripTextBox3,
+            this.enableDisableToolStripMenuItem});
             this.gameToetsToolStripMenuItem.Name = "gameToetsToolStripMenuItem";
             this.gameToetsToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.gameToetsToolStripMenuItem.Text = "Game key (WIP)";
             // 
-            // tToolStripMenuItem
+            // toolStripTextBox3
             // 
-            this.tToolStripMenuItem.Name = "tToolStripMenuItem";
-            this.tToolStripMenuItem.Size = new System.Drawing.Size(81, 22);
-            this.tToolStripMenuItem.Text = "T";
+            this.toolStripTextBox3.Name = "toolStripTextBox3";
+            this.toolStripTextBox3.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox3.Text = "T";
+            // 
+            // enableDisableToolStripMenuItem
+            // 
+            this.enableDisableToolStripMenuItem.Name = "enableDisableToolStripMenuItem";
+            this.enableDisableToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.enableDisableToolStripMenuItem.Text = "Enable/Disable";
             // 
             // toolStripSeparator5
             // 
@@ -751,6 +797,11 @@ namespace SuperSpam
             this.label4.TabIndex = 13;
             this.label4.Text = "Loading. Please Wait.";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -826,7 +877,6 @@ namespace SuperSpam
         private ToolStripMenuItem instellingenToolStripMenuItem;
         private ToolStripMenuItem enterToetsVerzendenToolStripMenuItem;
         private ToolStripMenuItem gameToetsToolStripMenuItem;
-        private ToolStripMenuItem tToolStripMenuItem;
         private ToolStripMenuItem superSpamScriptingToolStripMenuItem;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
@@ -865,6 +915,13 @@ namespace SuperSpam
         private Label label2;
         private Label label4;
         private ToolStripMenuItem BuildToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripMenuItem topMinBottomMaxToolStripMenuItem;
+        private ToolStripTextBox toolStripTextBox3;
+        private ToolStripMenuItem enableDisableToolStripMenuItem;
+        private NotifyIcon notifyIcon1;
+        private ToolStripMenuItem debugToolStripMenuItem;
+        private ToolStripMenuItem crashSuperSpamToolStripMenuItem;
     }
 }
 
