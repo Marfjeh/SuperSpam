@@ -471,6 +471,7 @@ namespace SuperSpam
             this.enableDisableToolStripMenuItem.Name = "enableDisableToolStripMenuItem";
             this.enableDisableToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.enableDisableToolStripMenuItem.Text = "Enable/Disable";
+            this.enableDisableToolStripMenuItem.Click += new System.EventHandler(this.enableDisableToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 

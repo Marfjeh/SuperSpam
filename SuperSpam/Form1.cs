@@ -28,7 +28,7 @@ namespace SuperSpam
         int version_int = 250;
 
         // Build info
-        int buildnum = 221;
+        int buildnum = 222;
         string buildtype = "Pre-Release";
         string builddate = "6-4-2016";
         string codename = "SAY IT LOUDER!";
@@ -52,7 +52,7 @@ namespace SuperSpam
 
         //Debugging
         Boolean in64now = Environment.Is64BitProcess;
-        Boolean Debug_mode = true;
+        Boolean Debug_mode = false;
 
         //See how many cpu cores there is, maybe useful for multithreading in the future
         string cpus = Environment.ProcessorCount.ToString();
@@ -233,6 +233,11 @@ namespace SuperSpam
             if (enableRandomIntervalToolStripMenuItem.Checked == true)
             {
                 randominterval();
+            }
+
+            if (enableDisableToolStripMenuItem.Checked == true)
+            {
+                gamekey();
             }
         }
 
@@ -780,6 +785,103 @@ namespace SuperSpam
             int lol = 1;
             int lol2 = 0;
             int total = lol / lol2;
+        }
+
+        public void gamekey()
+        {
+            switch (toolStripTextBox3.Text) //not as efficent, but it works.
+            {
+                case "Q":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_Q);
+                    break;
+                case "W":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_W);
+                    break;
+                case "E":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_E);
+                    break;
+                case "R":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_R);
+                    break;
+                case "T":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_T);
+                    break;
+                case "Y":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_Y);
+                    break;
+                case "U":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                    break;
+                case "I":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_I);
+                    break;
+                case "O":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_O);
+                    break;
+                case "P":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_P);
+                    break;
+                case "A":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_A);
+                    break;
+                case "S":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_S);
+                    break;
+                case "D":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_D);
+                    break;
+                case "F":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_F);
+                    break;
+                case "G":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_G);
+                    break;
+                case "H":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_H);
+                    break;
+                case "J":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_J);
+                    break;
+                case "K":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_K);
+                    break;
+                case "L":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_L);
+                    break;
+                case "Z":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_Z);
+                    break;
+                case "X":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_X);
+                    break;
+                case "C":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_C);
+                    break;
+                case "V":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_V);
+                    break;
+                case "B":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_B);
+                    break;
+                case "N":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_N);
+                    break;
+                case "M":
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_M);
+                    break;
+            }
+        }
+
+        private void enableDisableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(enableDisableToolStripMenuItem.Checked == false)
+            {
+                enableDisableToolStripMenuItem.Checked = true;
+            }
+            else
+            {
+                enableDisableToolStripMenuItem.Checked = false;
+            }
         }
     }
 }
