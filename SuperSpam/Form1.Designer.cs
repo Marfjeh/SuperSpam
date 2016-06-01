@@ -31,6 +31,8 @@ namespace SuperSpam
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("X");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Y");
             this.ControlPanel = new System.Windows.Forms.Panel();
             this.StartSpam = new System.Windows.Forms.Button();
             this.StopSpam = new System.Windows.Forms.Button();
@@ -95,8 +97,11 @@ namespace SuperSpam
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -107,6 +112,7 @@ namespace SuperSpam
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label4 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.MouseRecorder = new System.Windows.Forms.Timer(this.components);
             this.ControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedControl)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -521,7 +527,6 @@ namespace SuperSpam
             this.comicSansModeToolStripMenuItem.Name = "comicSansModeToolStripMenuItem";
             this.comicSansModeToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.comicSansModeToolStripMenuItem.Text = "Comic Sans Police";
-            this.comicSansModeToolStripMenuItem.Visible = false;
             this.comicSansModeToolStripMenuItem.Click += new System.EventHandler(this.comicSansModeToolStripMenuItem_Click);
             // 
             // nieuweVersieToolStripMenuItem
@@ -688,8 +693,11 @@ namespace SuperSpam
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button8);
+            this.tabPage3.Controls.Add(this.button7);
+            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.listView1);
             this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.listBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -697,6 +705,44 @@ namespace SuperSpam
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Mouse";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(32, 217);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "Stop";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(32, 188);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 4;
+            this.button7.Text = "Play";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(32, 159);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "Record";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.listView1.Location = new System.Drawing.Point(140, 6);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(397, 257);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -707,15 +753,6 @@ namespace SuperSpam
             this.label1.TabIndex = 1;
             this.label1.Text = "Press c to left click\r\n\r\nPress d to Double click\r\n\r\nPress r to right click\r\n\r\nKee" +
     "p this window active \r\nto set location for mouse";
-            // 
-            // listBox2
-            // 
-            this.listBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(140, 3);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(400, 263);
-            this.listBox2.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -802,6 +839,10 @@ namespace SuperSpam
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            // 
+            // MouseRecorder
+            // 
+            this.MouseRecorder.Interval = 500;
             // 
             // Form1
             // 
@@ -907,7 +948,6 @@ namespace SuperSpam
         private Label label3;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private ListBox listBox2;
         private Button button5;
         private Label label1;
         private ToolStripSeparator toolStripSeparator5;
@@ -923,6 +963,11 @@ namespace SuperSpam
         private NotifyIcon notifyIcon1;
         private ToolStripMenuItem debugToolStripMenuItem;
         private ToolStripMenuItem crashSuperSpamToolStripMenuItem;
+        private ListView listView1;
+        private Button button8;
+        private Button button7;
+        private Button button6;
+        private Timer MouseRecorder;
     }
 }
 
