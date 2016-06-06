@@ -97,11 +97,6 @@ namespace SuperSpam
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -113,6 +108,12 @@ namespace SuperSpam
             this.label4 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.MouseRecorder = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.ControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedControl)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -693,6 +694,7 @@ namespace SuperSpam
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.button8);
             this.tabPage3.Controls.Add(this.button7);
             this.tabPage3.Controls.Add(this.button6);
@@ -705,54 +707,6 @@ namespace SuperSpam
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Mouse";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(32, 217);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Stop";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(32, 188);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "Play";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(32, 159);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Record";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(140, 6);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(397, 257);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 104);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Press c to left click\r\n\r\nPress d to Double click\r\n\r\nPress r to right click\r\n\r\nKee" +
-    "p this window active \r\nto set location for mouse";
             // 
             // tabPage4
             // 
@@ -843,6 +797,72 @@ namespace SuperSpam
             // MouseRecorder
             // 
             this.MouseRecorder.Interval = 500;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Enabled = false;
+            this.label1.Location = new System.Drawing.Point(9, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 104);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Press c to left click\r\n\r\nPress d to Double click\r\n\r\nPress r to right click\r\n\r\nKee" +
+    "p this window active \r\nto set location for mouse";
+            // 
+            // listView1
+            // 
+            this.listView1.Enabled = false;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.listView1.Location = new System.Drawing.Point(140, 6);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(397, 257);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // button6
+            // 
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(32, 159);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "Record";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Enabled = false;
+            this.button7.Location = new System.Drawing.Point(32, 188);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 4;
+            this.button7.Text = "Play";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Enabled = false;
+            this.button8.Location = new System.Drawing.Point(32, 217);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "Stop";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(213, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(174, 40);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Disabled in this version.\r\nComing Soon(TM)";
             // 
             // Form1
             // 
@@ -949,7 +969,6 @@ namespace SuperSpam
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Button button5;
-        private Label label1;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem allowBetaUpdatesToolStripMenuItem;
         private LinkLabel linkLabel1;
@@ -963,11 +982,13 @@ namespace SuperSpam
         private NotifyIcon notifyIcon1;
         private ToolStripMenuItem debugToolStripMenuItem;
         private ToolStripMenuItem crashSuperSpamToolStripMenuItem;
-        private ListView listView1;
+        private Timer MouseRecorder;
+        private Label label5;
         private Button button8;
         private Button button7;
         private Button button6;
-        private Timer MouseRecorder;
+        private ListView listView1;
+        private Label label1;
     }
 }
 

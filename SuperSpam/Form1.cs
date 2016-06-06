@@ -26,12 +26,12 @@ namespace SuperSpam
 
         // Version Info
         string versie = "2.5.0";
-        int version_int = 250;
+        int version_int = 251;
 
         // Build info
         int buildnum = 224;
-        string buildtype = "Pre-Release";
-        string builddate = "12-5-2016";
+        string buildtype = "Pre-Release 2";
+        string builddate = "6-6-2016";
         string codename = "SAY IT LOUDER!";
 
         //Update System
