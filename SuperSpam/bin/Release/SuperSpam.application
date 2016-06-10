@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="file:///C:/Users/Marvi/Documents/GitHub/SuperSpam/SuperSpam/publish/SuperSpam.application" />
+    <deploymentProvider codebase="file://mac/Home/Desktop/Superspam/SuperSpam/SuperSpam/publish/SuperSpam.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hBWG2h0GXYSs92f7rYLH4qBU82+gaH3UZ4i69rHY2Sg=</dsig:DigestValue>
+        <dsig:DigestValue>3irTsyuF+MY6pk0x3pfGB9agXHwJzWlXNn9aFqGUD1M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

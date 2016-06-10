@@ -26,12 +26,12 @@ namespace SuperSpam
 
         // Version Info
         string versie = "2.5.0";
-        int version_int = 251;
+        int version_int = 250;
 
         // Build info
-        int buildnum = 224;
-        string buildtype = "Pre-Release 2";
-        string builddate = "6-6-2016";
+        int buildnum = 264;
+        string buildtype = "Release";
+        string builddate = "10-6-2016";
         string codename = "SAY IT LOUDER!";
 
         //Update System
@@ -43,7 +43,7 @@ namespace SuperSpam
         public string new_version = "";
         public string new_build = "";
         public string new_version_int = "";
-        public Boolean Buildupdater = true; //Allowing Beta/Pre-Release Updates.
+        public Boolean Buildupdater = false; //Allowing Beta/Pre-Release Updates.
 
         public Boolean ingorealert = false; //Allowing users to ingore alerts after pressing X.
 
@@ -998,6 +998,7 @@ public static class Prompt
         Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
         TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400, Text = textboxdata };
         Button confirmation = new Button() { Text = "OK", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+        Button Nope = new Button() { Text = "Cansel", Left = 200, Width = 50, Top = 70, DialogResult = DialogResult.Cancel};
         confirmation.Click += (sender, e) => { prompt.Close(); };
         prompt.Controls.Add(textBox);
         prompt.Controls.Add(confirmation);
