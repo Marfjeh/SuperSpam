@@ -14,7 +14,7 @@ using WindowsInput;
 using System.IO;
 using System.Web;
 using System.Configuration;
-
+using System.Net;
 
 namespace SuperSpam
 {
@@ -285,7 +285,7 @@ namespace SuperSpam
             SuperSpamEngine.Interval = interval;
             if (Debug_mode == false)
             {
-                webBrowser1.Navigate(server);
+                superspam_updater(null);
             }
             else
             {
@@ -303,22 +303,28 @@ namespace SuperSpam
 
         }
 
-        public void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        public void superspam_updater(string argument)
         {
             if (Debug_mode == false)
             {
                 try
                 {
+                    string HTML;
+                    using (var wc = new WebClient()) // met using kunnen we de downloadstream gelijk sluiten als het klaar is.
+                    {
+                        HTML = wc.DownloadString("http://marfprojects.nl/projects/Super/");
+                    }
+                    var doc = new HtmlAgilityPack.HtmlDocument();
+                    doc.LoadHtml(HTML);
 
-                    new_version = webBrowser1.Document.GetElementById("new_version").OuterText;
-                    kill = webBrowser1.Document.GetElementById("Kill_Switch").OuterText;
-                    new_date = webBrowser1.Document.GetElementById("date").OuterText;
-                    new_build = webBrowser1.Document.GetElementById("beta_build").OuterText;
-                    new_version_int = webBrowser1.Document.GetElementById("new_version_int").OuterText;
-
+                    //Parsing data from server
+                    new_version = doc.GetElementbyId("new_version").InnerText;
+                    kill = doc.GetElementbyId("Kill_Switch").InnerText;
+                    new_date = doc.GetElementbyId("date").InnerText;
+                    new_build = doc.GetElementbyId("beta_build").InnerText;
+                    new_version_int = doc.GetElementbyId("new_version_int").InnerText;
                     int killer = Convert.ToInt32(kill);
-                    debuglog("Loaded.", "Activatie_thread");
-
+                    debuglog("Loaded.", "Activatie_thread2.0");
                     if (killer == 1)
                     {
                         MessageBox.Show("Kill switch is activated. SuperSpam is Useless, maybe this version is outdated.", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
@@ -336,9 +342,9 @@ namespace SuperSpam
                     int old_v = version_int;
                     int new_v = int.Parse(new_version_int);
                     int new_b = int.Parse(new_build);
-                   
+
                     debuglog("Checkt voor nieuwe versie...", "Activatie_thread");
-                    
+
                     if (old_v == new_v)
                     {
                         // Geen nieuwe Versie gevonden!
@@ -346,8 +352,8 @@ namespace SuperSpam
                     }
                     else if (old_v >= new_v)
                     {
-                            VersionInfoLabel.Text = "Versie: " + versie + " Build: " + buildnum + "\n Development Version";
-                            debuglog("Hoi marf :)", "Activatie_thread");
+                        VersionInfoLabel.Text = "Versie: " + versie + " Build: " + buildnum + "\n Development Version";
+                        debuglog("Hoi marf :)", "Activatie_thread");
                     }
                     else
                     {
@@ -375,6 +381,7 @@ namespace SuperSpam
                             BuildToolStripMenuItem.Text = "New Build: " + new_build;
                         }
                     }
+
                 }
                 catch (Exception b)
                 {
@@ -382,13 +389,11 @@ namespace SuperSpam
                     this.Close();
                 }
             }
-
             else
             {
                 this.Text = "SuperSpam 2 ver: " + versie + " Build: " + buildnum + " " + buildtype + " " + builddate + " DEBUG MODE";
                 start_gui();
                 debuglog("Superspam draait in debug mode", "WARNING");
-
             }
         }
 
@@ -766,7 +771,7 @@ namespace SuperSpam
                 {
                     allowBetaUpdatesToolStripMenuItem.Checked = true;
                     Buildupdater = true;
-                    webBrowser1.Navigate(server);
+                    superspam_updater(null);
                 }
                 else if (dialogResult == DialogResult.No)
                 {

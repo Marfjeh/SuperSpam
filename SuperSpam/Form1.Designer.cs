@@ -41,7 +41,6 @@ namespace SuperSpam
             this.EngineChoser = new System.Windows.Forms.ComboBox();
             this.speed = new System.Windows.Forms.Label();
             this.SpeedControl = new System.Windows.Forms.NumericUpDown();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuperSpamEngine = new System.Windows.Forms.Timer(this.components);
@@ -149,13 +148,12 @@ namespace SuperSpam
             this.StartSpam.BackColor = System.Drawing.SystemColors.Control;
             this.StartSpam.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.StartSpam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartSpam.Image = ((System.Drawing.Image)(resources.GetObject("StartSpam.Image")));
             this.StartSpam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StartSpam.Location = new System.Drawing.Point(77, 2);
             this.StartSpam.Name = "StartSpam";
             this.StartSpam.Size = new System.Drawing.Size(67, 23);
             this.StartSpam.TabIndex = 1;
-            this.StartSpam.Text = "Start (F12)";
+            this.StartSpam.Text = "Start";
             this.StartSpam.UseVisualStyleBackColor = false;
             this.StartSpam.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -169,7 +167,7 @@ namespace SuperSpam
             this.StopSpam.Name = "StopSpam";
             this.StopSpam.Size = new System.Drawing.Size(67, 23);
             this.StopSpam.TabIndex = 2;
-            this.StopSpam.Text = "Stop (F11)";
+            this.StopSpam.Text = "Stop";
             this.StopSpam.UseVisualStyleBackColor = false;
             this.StopSpam.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -241,16 +239,6 @@ namespace SuperSpam
             0,
             0});
             this.SpeedControl.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(440, 322);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(99, 34);
-            this.webBrowser1.TabIndex = 9;
-            this.webBrowser1.Visible = false;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // openFileDialog1
             // 
@@ -875,7 +863,6 @@ namespace SuperSpam
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.ControlPanel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label4);
@@ -919,7 +906,6 @@ namespace SuperSpam
         private System.Windows.Forms.Button StartSpam;
         private System.Windows.Forms.Timer SuperSpamEngine;
         private System.Windows.Forms.Label VersionInfoLabel;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private RichTextBox textBox1;
         private Label Counter;
         private Timer afteller;

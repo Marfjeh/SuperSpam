@@ -8,20 +8,20 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="file://mac/Home/Desktop/Superspam/SuperSpam/SuperSpam/publish/SuperSpam.application" />
+    <deploymentProvider codebase="file:///C:/Users/Marvin/Github/SuperSpam/SuperSpam/publish/SuperSpam.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="SuperSpam.exe.manifest" size="6312">
+    <dependentAssembly dependencyType="install" codebase="SuperSpam.exe.manifest" size="6995">
       <assemblyIdentity name="SuperSpam.exe" version="2.3.14.0" publicKeyToken="0000000000000000" language="nl-NL" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3irTsyuF+MY6pk0x3pfGB9agXHwJzWlXNn9aFqGUD1M=</dsig:DigestValue>
+        <dsig:DigestValue>J8phHJdxYm9ljqTE0NHktnVldJ9m3AQBphfe8TjbSTA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

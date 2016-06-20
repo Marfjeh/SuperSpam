@@ -89,6 +89,9 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\Desktop\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="InputSimulator">
       <HintPath>.\InputSimulator.dll</HintPath>
     </Reference>
