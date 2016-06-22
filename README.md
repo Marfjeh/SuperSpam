@@ -1,6 +1,6 @@
 # SuperSpam
-Advanced test Tools for, Chat flooding, Html Form flooder, Web viewer simulator
+Advanced program for keypress automation.
 
-This project is for now CLOSED SOURCE.
+At this point the Active Developing is halted. There will only come a update for Bug fixed and VERIFED ISSUES for suggestions or what ever.
 
-SuperSpam not working? run this .reg file: http://www.marfprojects.nl/projects/Super/SuperSpam.reg
+OLD VERSIONS: SuperSpam not working? run this .reg file: http://www.marfprojects.nl/projects/Super/SuperSpam.reg
