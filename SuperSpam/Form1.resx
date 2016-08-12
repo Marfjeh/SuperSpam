@@ -356,16 +356,16 @@
 </value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>SuperSpam is made by Marvin Ferwerda  (Marfjeh), 
+    <value>SuperSpam is made by Marvin Ferwerda  (Github: Marfjeh), 
 This software is made for entertainment purposes and nothing more. 
-I Marvin Ferwerda am not resposible for any results that are caused by and or via this program
+I'm not resposible for any results that are caused by and or via this program.
 Only use it at your own risk.
 
 Thanks to:
-Sadusko, for the better updater system.
-Cp_022 for translating some of the text and ideas.
 MegaXLR For ideas/suggestions.
-robinkuijpers For ideas/suggestions
+robinkuijpers For ideas/suggestions.
+Cp_022 for translating some of the text and ideas.
+Sadusko, for the better updater system.
 
 Made in Holland :D</value>
   </data>

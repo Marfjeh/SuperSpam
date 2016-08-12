@@ -15,6 +15,7 @@ using System.IO;
 using System.Web;
 using System.Configuration;
 using System.Net;
+using System.Xml.Linq;
 
 namespace SuperSpam
 {
@@ -25,14 +26,14 @@ namespace SuperSpam
         Process currentProc = Process.GetCurrentProcess();
 
         // Version Info
-        string versie = "2.5.0";
-        int version_int = 250;
+        string versie = "2.5.1";
+        int version_int = 251;
 
         // Build info
-        int buildnum = 264;
+        int buildnum = 302;
         string buildtype = "Release";
-        string builddate = "10-6-2016";
-        string codename = "SAY IT LOUDER!";
+        string builddate = "12-8-2016";
+        string codename = "2 Years";
 
         //Update System
         string updateserver = "http://www.marfprojects.nl/projects/Super/SuperSpam.exe";
@@ -110,7 +111,7 @@ namespace SuperSpam
 
                 if (message == "" || message == null)
                 {
-                    toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
+                    toolStripStatusLabel1.Text = "SuperSpam " + versie;
                     toolStripStatusLabel1.ForeColor = Color.Black;
                     button1.Visible = false;
                 }
@@ -275,7 +276,7 @@ namespace SuperSpam
         private void Form1_Load(object sender, EventArgs e)
         {
             label3.Text = "SuperSpam Version: " + versie + " Build: " + buildnum + " Codename: " + codename;
-            toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
+            toolStripStatusLabel1.Text = "SuperSpam " + versie;
             debuglog("SuperSpam Bootstrapper Started.", "info");
             debuglog("SuperSpam " + versie + " Build: " + buildnum + " " + buildtype, "info");
             this.Text = "SuperSpam " + versie;
@@ -312,7 +313,7 @@ namespace SuperSpam
                     string HTML;
                     using (var wc = new WebClient()) // met using kunnen we de downloadstream gelijk sluiten als het klaar is.
                     {
-                        HTML = wc.DownloadString("http://marfprojects.nl/projects/Super/");
+                        HTML = wc.DownloadString(server);
                     }
                     var doc = new HtmlAgilityPack.HtmlDocument();
                     doc.LoadHtml(HTML);
@@ -541,7 +542,7 @@ namespace SuperSpam
 
         private void overSuperSpamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectTab(3);
+            tabControl1.SelectTab(2);
         }
 
         private void nieuwToolStripMenuItem_Click(object sender, EventArgs e)
@@ -561,6 +562,8 @@ namespace SuperSpam
         private void debuggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+
+            
             long memoryUsed = currentProc.PrivateMemorySize64;
             long naarmb = 1024 * 1024;
             MessageBox.Show("------------------DEBUG------------------\n"
@@ -568,6 +571,7 @@ namespace SuperSpam
                 + "\nBuild: " + buildnum
                 + "\nbuild type: " + buildtype
                 + "\nbuild date: " + builddate
+                + "\nWindows Version: " + System.Environment.OSVersion
                 + "\n64Bit process: " + in64now
                 + "\nCpu count: " + cpus
                 + "\nDebug mode: " + Debug_mode
@@ -698,7 +702,7 @@ namespace SuperSpam
                         tekstOpslaanAlsToolStripMenuItem.Enabled = false;
                         tekstOpenenToolStripMenuItem.Enabled = false;
                         readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = true;
-                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "Read and Write files in ArrayMode is at this moment not impented.";
+                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "Save Array";
                         enablecontrolp(1);
                     }
                     break;
@@ -951,6 +955,23 @@ namespace SuperSpam
                     MessageBox.Show("Invailid game key! you can only use A to Z, 0 to 9 and F1 to F12.", "SuperSpamEngine", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
+        }
+
+        private void superSpamScriptingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XElement element = new XElement("Items");
+            foreach (var item in listBox1.Items)
+            {
+                element.Add(new XElement("Name", item));
+            }
+            XDocument document = new XDocument();
+            document.Add(element);
+            document.Save("items.xml", SaveOptions.DisableFormatting);
         }
 
         private void enableDisableToolStripMenuItem_Click(object sender, EventArgs e)
