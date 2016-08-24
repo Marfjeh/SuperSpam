@@ -32,11 +32,11 @@ namespace SuperSpam
         Process currentProc = Process.GetCurrentProcess();
 
         // Version Info
-        string versie = "2.5.1";
-        int version_int = 251;
+        string versie = "2.6.0";
+        int version_int = 260;
 
         // Build info
-        int buildnum = 302;
+        int buildnum = 304;
         string buildtype = "Release";
         string builddate = "12-8-2016";
         string codename = "2 Years";
@@ -562,7 +562,7 @@ namespace SuperSpam
             }
             else if (dialogResult == DialogResult.No)
             {
-
+                
             }
         }
 
@@ -995,7 +995,7 @@ namespace SuperSpam
             openFileDialog1.AddExtension = false;
             openFileDialog1.ShowDialog();
             XDocument xmldoc = XDocument.Load(openFileDialog1.FileName);
-            var items = (from i in xmldoc.Descendants("line")
+            var items = (from i in xmldoc.Descendants("items")
                          select new { Value = i.Element("line").Value }).ToList();
 
             listBox1.DataSource = items;
