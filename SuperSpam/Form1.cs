@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * I'm so sorry to watch you see in pain because of this badly written code.
+ * and how the hell did you got the source code? o_O
+ * Marf is not a real C# programmer, i've made this in my own time because my friends needed a program like this.
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,6 +65,7 @@ namespace SuperSpam
         //See how many cpu cores there is, maybe useful for multithreading in the future
         string cpus = Environment.ProcessorCount.ToString();
         public int tabcontrolgeselecteerd = 0;
+
 
         public object ConfigurationManager { get; private set; }
 
@@ -562,8 +569,6 @@ namespace SuperSpam
         private void debuggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-
-            
             long memoryUsed = currentProc.PrivateMemorySize64;
             long naarmb = 1024 * 1024;
             MessageBox.Show("------------------DEBUG------------------\n"
@@ -664,7 +669,10 @@ namespace SuperSpam
         private void button2_Click(object sender, EventArgs e)
         {
             string promptValue = Prompt.ShowDialog("Add text to the array", "SuperSpam", null);
-            listBox1.Items.Add(promptValue);
+            if (promptValue != null || promptValue != "")
+            {
+                listBox1.Items.Add(promptValue);
+            }
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -967,11 +975,32 @@ namespace SuperSpam
             XElement element = new XElement("Items");
             foreach (var item in listBox1.Items)
             {
-                element.Add(new XElement("Name", item));
+                element.Add(new XElement("line", item));
             }
             XDocument document = new XDocument();
             document.Add(element);
-            document.Save("items.xml", SaveOptions.DisableFormatting);
+            saveFileDialog1.Title = "Save as xml";
+            saveFileDialog1.Filter = "xml file (*.xml) | *.xml";
+            saveFileDialog1.AddExtension = false;
+            saveFileDialog1.ShowDialog();
+            try { document.Save(saveFileDialog1.FileName, SaveOptions.DisableFormatting); } catch { }
+        }
+
+
+        private void loadArrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            openFileDialog1.Title = "Open a xml file";
+            openFileDialog1.Filter = "xml file (*.xml) | *.xml";
+            openFileDialog1.AddExtension = false;
+            openFileDialog1.ShowDialog();
+            XDocument xmldoc = XDocument.Load(openFileDialog1.FileName);
+            var items = (from i in xmldoc.Descendants("line")
+                         select new { Value = i.Element("line").Value }).ToList();
+
+            listBox1.DataSource = items;
+            listBox1.DisplayMember = "items";
+            listBox1.ValueMember = "line";
         }
 
         private void enableDisableToolStripMenuItem_Click(object sender, EventArgs e)
