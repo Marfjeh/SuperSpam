@@ -36,16 +36,16 @@ namespace SuperSpam
         int version_int = 260;
 
         // Build info
-        int buildnum = 304;
+        int buildnum = 305;
         string buildtype = "Release";
-        string builddate = "12-8-2016";
+        string builddate = "25-8-2016";
         string codename = "2 Years";
 
         //Update System
         string updateserver = "http://www.marfprojects.nl/projects/Super/SuperSpam.exe";
         string updateserverpre = "http://www.marfprojects.nl/projects/Super/pre.exe";
 
-        string server = "http://www.marfprojects.nl/projects/Super/index.html";
+        string server = "http://www.marfprojects.nl/projects/Super/index.php";
         public string changelog = "http://www.marfprojects.nl/projects/Super/changelog.html"; // not in use
         public string new_version = "";
         public string new_build = "";
@@ -320,7 +320,7 @@ namespace SuperSpam
                     string HTML;
                     using (var wc = new WebClient()) // met using kunnen we de downloadstream gelijk sluiten als het klaar is.
                     {
-                        HTML = wc.DownloadString(server);
+                        HTML = wc.DownloadString(server + "?version=" + versie + "&dev=" + Convert.ToInt32(Buildupdater));
                     }
                     var doc = new HtmlAgilityPack.HtmlDocument();
                     doc.LoadHtml(HTML);
