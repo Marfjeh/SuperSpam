@@ -36,7 +36,7 @@ namespace SuperSpam
         int version_int = 260;
 
         // Build info
-        int buildnum = 305;
+        int buildnum = 306;
         string buildtype = "Release";
         string builddate = "25-8-2016";
         string codename = "2 Years";
@@ -100,11 +100,15 @@ namespace SuperSpam
             {
                 if (flash == true)
                 {
-                    alertTimer.Enabled = true;
+                    //alertTimer.Enabled = true;
+                    button1.Visible = true;
+                    toolStripStatusLabel1.ForeColor = Color.Red;
                 }
                 else
                 {
-                    alertTimer.Enabled = false;
+                    //alertTimer.Enabled = false;
+                    button1.Visible = false;
+                    toolStripStatusLabel1.ForeColor = Color.Black;
                 }
 
                 if (warningicon == true)
