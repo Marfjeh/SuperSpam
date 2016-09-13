@@ -1,7 +1,8 @@
 ﻿/*
  * I'm so sorry to watch you see in pain because of this badly written code.
  * and how the hell did you got the source code? o_O
- * Marf is not a real C# programmer, i've made this in my own time because my friends needed a program like this.
+ * Marf is not a real C# programmer, he has made this in his own time because his friends needed a program like this. 
+ * Do not hit Marf because of this. Marf has done no harm to you.
  * */
 
 using System;
