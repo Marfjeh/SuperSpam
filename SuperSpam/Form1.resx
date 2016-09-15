@@ -205,7 +205,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALEQAACxEBf2RfkQAAImVJREFUeF7tnQl8XlWZ
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDQAACw0B7QfALAAAImVJREFUeF7tnQl8XlWZ
         xtMszdYszdYkzdo0SdMszdKmSdOm6W5aoFBKoRQtjJaCuIJKGVFAZSsFigUKgjqiIIMzDiOgIqOIjLsz
         44oCOi4oOOM4OKPDJvjN8z+55/Tk5vvSNCWhKff5/Z7vnnvue8+5373PPfe9Z7tJsVgsYsRXDQ8EQpg5
         c2ZSUVFRsDZ2pKSkJM2aNStp2rRpQUyEeOjo6Ejp7+9P6enpcezt7TUcGBhILS0tTS4vL08mbLf5dsuX
@@ -369,12 +369,6 @@ Sadusko, for the better updater system.
 
 Made in Holland :D</value>
   </data>
-  <metadata name="MouseEngine.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1041, 17</value>
-  </metadata>
-  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>181, 56</value>
   </metadata>

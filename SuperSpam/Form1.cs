@@ -38,9 +38,9 @@ namespace SuperSpam
         int version_int = 260;
 
         // Build info
-        int buildnum = 307;
+        int buildnum = 308;
         string buildtype = "Release";
-        string builddate = "25-8-2016";
+        string builddate = "15-9-2016";
         string codename = "2 Years";
 
         //Update System
@@ -48,7 +48,6 @@ namespace SuperSpam
         string updateserverpre = "http://www.marfprojects.nl/projects/Super/pre.exe";
 
         string server = "http://www.marfprojects.nl/projects/Super/index.php";
-        public string changelog = "http://www.marfprojects.nl/projects/Super/changelog.html"; // not in use
         public string new_version = "";
         public string new_build = "";
         public string new_version_int = "";
@@ -67,10 +66,6 @@ namespace SuperSpam
         //See how many cpu cores there is, maybe useful for multithreading in the future
         string cpus = Environment.ProcessorCount.ToString();
         public int tabcontrolgeselecteerd = 0;
-
-
-        public object ConfigurationManager { get; private set; }
-
         //end
 
         public Form1()
@@ -147,7 +142,7 @@ namespace SuperSpam
             }
             else if(tabcontrolgeselecteerd == 2)
             {
-                MouseEngine.Enabled = true;
+                
             }
             else
             {
@@ -277,7 +272,6 @@ namespace SuperSpam
         {
             debuglog("SuperSpam " + EngineChoser.Text + " Gestopt.", "Engine");
             EngineChoser.Enabled = true;
-            MouseEngine.Enabled = false;
             SuperSpamEngine.Enabled = false;
             OldSuperSpamEngine.Enabled = false;
             afteller.Enabled = false;
@@ -409,12 +403,6 @@ namespace SuperSpam
                 start_gui();
                 debuglog("Superspam draait in debug mode", "WARNING");
             }
-        }
-
-        private void Update_button_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start(updateserver);
-            this.Close();
         }
 
         public void stop_gui()
@@ -611,23 +599,6 @@ namespace SuperSpam
             }
         }
 
-        private void CheckKeyword(string word, Color color, int startIndex)
-        {
-            if (this.textBox1.Text.Contains(word))
-            {
-                int index = -1;
-                int selectStart = this.textBox1.SelectionStart;
-
-                while ((index = this.textBox1.Text.IndexOf(word, (index + 1))) != -1)
-                {
-                    this.textBox1.Select((index + startIndex), word.Length);
-                    this.textBox1.SelectionColor = color;
-                    this.textBox1.Select(selectStart, 0);
-                    this.textBox1.SelectionColor = Color.Black;
-                }
-            }
-        }
-
         private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -651,11 +622,6 @@ namespace SuperSpam
         {
             statusalert(null, false, false);
             ingorealert = true;
-        }
-
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void enableRandomIntervalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -743,16 +709,6 @@ namespace SuperSpam
         private void comicSansModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Font = new Font("Comic Sans MS", 12, FontStyle.Regular);
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -1008,7 +964,6 @@ namespace SuperSpam
             listBox1.DisplayMember = "items";
             listBox1.ValueMember = "line";
         }
-
         private void enableDisableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(enableDisableToolStripMenuItem.Checked == false)
