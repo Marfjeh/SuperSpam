@@ -105,6 +105,9 @@ namespace SuperSpam
             this.label4 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.MouseRecorder = new System.Windows.Forms.Timer(this.components);
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nederlandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedControl)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -373,6 +376,7 @@ namespace SuperSpam
             // instellingenToolStripMenuItem
             // 
             this.instellingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.languageToolStripMenuItem,
             this.enterToetsVerzendenToolStripMenuItem,
             this.randomIntervalToolStripMenuItem,
             this.gameToetsToolStripMenuItem,
@@ -414,7 +418,7 @@ namespace SuperSpam
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
             // 
             // toolStripTextBox2
             // 
@@ -425,25 +429,25 @@ namespace SuperSpam
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(212, 6);
             // 
             // enableRandomIntervalToolStripMenuItem
             // 
             this.enableRandomIntervalToolStripMenuItem.Name = "enableRandomIntervalToolStripMenuItem";
-            this.enableRandomIntervalToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.enableRandomIntervalToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.enableRandomIntervalToolStripMenuItem.Text = "Enable Random Interval";
             this.enableRandomIntervalToolStripMenuItem.Click += new System.EventHandler(this.enableRandomIntervalToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(212, 6);
             // 
             // topMinBottomMaxToolStripMenuItem
             // 
             this.topMinBottomMaxToolStripMenuItem.Enabled = false;
             this.topMinBottomMaxToolStripMenuItem.Name = "topMinBottomMaxToolStripMenuItem";
-            this.topMinBottomMaxToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.topMinBottomMaxToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.topMinBottomMaxToolStripMenuItem.Text = "Top = Min. Bottom = Max.";
             // 
             // gameToetsToolStripMenuItem
@@ -523,7 +527,7 @@ namespace SuperSpam
             // nieuweVersieToolStripMenuItem
             // 
             this.nieuweVersieToolStripMenuItem.Name = "nieuweVersieToolStripMenuItem";
-            this.nieuweVersieToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.nieuweVersieToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
             this.nieuweVersieToolStripMenuItem.Text = "New Version: 0.0";
             this.nieuweVersieToolStripMenuItem.Visible = false;
             this.nieuweVersieToolStripMenuItem.Click += new System.EventHandler(this.nieuweVersieToolStripMenuItem_Click);
@@ -769,6 +773,27 @@ namespace SuperSpam
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // languageToolStripMenuItem
+            // 
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishToolStripMenuItem,
+            this.nederlandsToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.languageToolStripMenuItem.Text = "Language";
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            // 
+            // nederlandsToolStripMenuItem
+            // 
+            this.nederlandsToolStripMenuItem.Name = "nederlandsToolStripMenuItem";
+            this.nederlandsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nederlandsToolStripMenuItem.Text = "Nederlands";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -885,6 +910,9 @@ namespace SuperSpam
         private ToolStripMenuItem crashSuperSpamToolStripMenuItem;
         private Timer MouseRecorder;
         private ToolStripMenuItem loadArrayToolStripMenuItem;
+        private ToolStripMenuItem languageToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem;
+        private ToolStripMenuItem nederlandsToolStripMenuItem;
     }
 }
 
