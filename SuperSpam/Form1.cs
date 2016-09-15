@@ -1025,7 +1025,7 @@ public static class Prompt
     }
 }
 
-class IniFile   // revision 11
+class IniFile   // revision 11 http://stackoverflow.com/questions/217902/reading-writing-an-ini-file
 {
     string Path;
     string EXE = Assembly.GetExecutingAssembly().GetName().Name;
