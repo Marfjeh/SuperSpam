@@ -193,8 +193,6 @@ D:\Users\Marvin\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.exe
 D:\Users\Marvin\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.pdb
 F:\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.csprojResolveAssemblyReference.cache
 F:\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.Form1.resources
-F:\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.Form2.resources
-F:\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.Update_form.resources
 F:\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.csproj.GenerateResource.Cache
 F:\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.exe
 F:\Github\SuperSpam\SuperSpam\obj\Release\SuperSpam.pdb
