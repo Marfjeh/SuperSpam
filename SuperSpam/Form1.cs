@@ -38,7 +38,7 @@ namespace SuperSpam
         int version_int = 260;
 
         // Build info
-        int buildnum = 308;
+        int buildnum = 309;
         string buildtype = "Release";
         string builddate = "15-9-2016";
         string codename = "2 Years";
