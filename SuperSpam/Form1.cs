@@ -666,7 +666,7 @@ namespace SuperSpam
             OldSuperSpamEngine.Enabled = false;
             switch (tabControl1.SelectedIndex)
             {
-                case 0:
+                case 0: //classic Text
                     {
                         tabcontrolgeselecteerd = 0;
                         tekstOpslaanAlsToolStripMenuItem.Enabled = true;
@@ -676,7 +676,7 @@ namespace SuperSpam
                         enablecontrolp(1);
                     }
                     break;
-                case 1:
+                case 1: // Array
                     {
                         tabcontrolgeselecteerd = 1;
                         tekstOpslaanAlsToolStripMenuItem.Enabled = false;
@@ -686,13 +686,13 @@ namespace SuperSpam
                         enablecontrolp(1);
                     }
                     break;
-                case 2:
+                case 2: // Whatsapp typing...
                     {
                         tabcontrolgeselecteerd = 2;
-                        enablecontrolp(0);
+                        enablecontrolp(1);
                     }
                     break;
-                case 3:
+                case 3: // About
                     {
                         tabcontrolgeselecteerd = 3;
                         enablecontrolp(0);
@@ -704,11 +704,6 @@ namespace SuperSpam
         private void button4_Click_1(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-        }
-
-        private void comicSansModeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Font = new Font("Comic Sans MS", 12, FontStyle.Regular);
         }
 
         private void button5_Click(object sender, EventArgs e)

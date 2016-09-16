@@ -79,7 +79,6 @@ namespace SuperSpam
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overSuperSpamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.superSpamScriptingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comicSansModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nieuweVersieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BuildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -96,6 +95,7 @@ namespace SuperSpam
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -295,7 +295,7 @@ namespace SuperSpam
             // nieuwToolStripMenuItem
             // 
             this.nieuwToolStripMenuItem.Name = "nieuwToolStripMenuItem";
-            this.nieuwToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nieuwToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.nieuwToolStripMenuItem.Text = "New";
             this.nieuwToolStripMenuItem.Click += new System.EventHandler(this.nieuwToolStripMenuItem_Click);
             // 
@@ -304,7 +304,7 @@ namespace SuperSpam
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Name = "readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem";
-            this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = ".";
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = false;
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Click += new System.EventHandler(this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem_Click);
@@ -312,45 +312,45 @@ namespace SuperSpam
             // loadArrayToolStripMenuItem
             // 
             this.loadArrayToolStripMenuItem.Name = "loadArrayToolStripMenuItem";
-            this.loadArrayToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadArrayToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.loadArrayToolStripMenuItem.Text = "Load Array";
             this.loadArrayToolStripMenuItem.Click += new System.EventHandler(this.loadArrayToolStripMenuItem_Click);
             // 
             // tekstOpenenToolStripMenuItem
             // 
             this.tekstOpenenToolStripMenuItem.Name = "tekstOpenenToolStripMenuItem";
-            this.tekstOpenenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tekstOpenenToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.tekstOpenenToolStripMenuItem.Text = "Open File";
             this.tekstOpenenToolStripMenuItem.Click += new System.EventHandler(this.tekstOpenenToolStripMenuItem_Click);
             // 
             // tekstOpslaanAlsToolStripMenuItem
             // 
             this.tekstOpslaanAlsToolStripMenuItem.Name = "tekstOpslaanAlsToolStripMenuItem";
-            this.tekstOpslaanAlsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tekstOpslaanAlsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.tekstOpslaanAlsToolStripMenuItem.Text = "Save file as";
             this.tekstOpslaanAlsToolStripMenuItem.Click += new System.EventHandler(this.tekstOpslaanAlsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(130, 6);
             // 
             // debuggerToolStripMenuItem
             // 
             this.debuggerToolStripMenuItem.Name = "debuggerToolStripMenuItem";
-            this.debuggerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.debuggerToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.debuggerToolStripMenuItem.Text = "Debug Info";
             this.debuggerToolStripMenuItem.Click += new System.EventHandler(this.debuggerToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
             // 
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.afsluitenToolStripMenuItem.Text = "Exit";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -508,8 +508,7 @@ namespace SuperSpam
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.overSuperSpamToolStripMenuItem,
-            this.superSpamScriptingToolStripMenuItem,
-            this.comicSansModeToolStripMenuItem});
+            this.superSpamScriptingToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -527,14 +526,6 @@ namespace SuperSpam
             this.superSpamScriptingToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.superSpamScriptingToolStripMenuItem.Text = "SuperSpam Scripting";
             this.superSpamScriptingToolStripMenuItem.Click += new System.EventHandler(this.superSpamScriptingToolStripMenuItem_Click);
-            // 
-            // comicSansModeToolStripMenuItem
-            // 
-            this.comicSansModeToolStripMenuItem.Name = "comicSansModeToolStripMenuItem";
-            this.comicSansModeToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.comicSansModeToolStripMenuItem.Text = "Comic Sans Police";
-            this.comicSansModeToolStripMenuItem.Visible = false;
-            this.comicSansModeToolStripMenuItem.Click += new System.EventHandler(this.comicSansModeToolStripMenuItem_Click);
             // 
             // nieuweVersieToolStripMenuItem
             // 
@@ -591,6 +582,7 @@ namespace SuperSpam
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 51);
@@ -697,6 +689,16 @@ namespace SuperSpam
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(543, 269);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Whatsapp typing";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -870,7 +872,6 @@ namespace SuperSpam
         private Button button3;
         private Button button2;
         private CheckBox checkBox1;
-        private ToolStripMenuItem comicSansModeToolStripMenuItem;
         private ToolStripMenuItem readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem;
         private TabPage tabPage4;
         private Label label3;
@@ -895,6 +896,7 @@ namespace SuperSpam
         private ToolStripMenuItem languageToolStripMenuItem;
         private ToolStripMenuItem englishToolStripMenuItem;
         private ToolStripMenuItem nederlandsToolStripMenuItem;
+        private TabPage tabPage3;
     }
 }
 
