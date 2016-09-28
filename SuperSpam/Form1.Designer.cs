@@ -49,7 +49,6 @@ namespace SuperSpam
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nieuwToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadArrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tekstOpenenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tekstOpslaanAlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,9 +58,6 @@ namespace SuperSpam
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crashSuperSpamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nederlandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enterToetsVerzendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randomIntervalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
@@ -77,8 +73,10 @@ namespace SuperSpam
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.allowBetaUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlinehelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overSuperSpamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.superSpamScriptingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comicSansModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nieuweVersieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BuildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -95,13 +93,14 @@ namespace SuperSpam
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MouseEngine = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label4 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.MouseRecorder = new System.Windows.Forms.Timer(this.components);
@@ -144,7 +143,7 @@ namespace SuperSpam
             this.StartSpam.Name = "StartSpam";
             this.StartSpam.Size = new System.Drawing.Size(67, 23);
             this.StartSpam.TabIndex = 1;
-            this.StartSpam.Text = "Start (F12)";
+            this.StartSpam.Text = "Start";
             this.StartSpam.UseVisualStyleBackColor = false;
             this.StartSpam.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -158,7 +157,7 @@ namespace SuperSpam
             this.StopSpam.Name = "StopSpam";
             this.StopSpam.Size = new System.Drawing.Size(67, 23);
             this.StopSpam.TabIndex = 2;
-            this.StopSpam.Text = "Stop (F11)";
+            this.StopSpam.Text = "Stop";
             this.StopSpam.UseVisualStyleBackColor = false;
             this.StopSpam.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -262,7 +261,6 @@ namespace SuperSpam
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bestandToolStripMenuItem,
             this.debugToolStripMenuItem,
@@ -272,6 +270,7 @@ namespace SuperSpam
             this.BuildToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(551, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
@@ -281,7 +280,6 @@ namespace SuperSpam
             this.bestandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nieuwToolStripMenuItem,
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem,
-            this.loadArrayToolStripMenuItem,
             this.tekstOpenenToolStripMenuItem,
             this.tekstOpslaanAlsToolStripMenuItem,
             this.toolStripSeparator2,
@@ -307,14 +305,6 @@ namespace SuperSpam
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = ".";
             this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = false;
-            this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Click += new System.EventHandler(this.readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem_Click);
-            // 
-            // loadArrayToolStripMenuItem
-            // 
-            this.loadArrayToolStripMenuItem.Name = "loadArrayToolStripMenuItem";
-            this.loadArrayToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.loadArrayToolStripMenuItem.Text = "Load Array";
-            this.loadArrayToolStripMenuItem.Click += new System.EventHandler(this.loadArrayToolStripMenuItem_Click);
             // 
             // tekstOpenenToolStripMenuItem
             // 
@@ -373,7 +363,6 @@ namespace SuperSpam
             // instellingenToolStripMenuItem
             // 
             this.instellingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.languageToolStripMenuItem,
             this.enterToetsVerzendenToolStripMenuItem,
             this.randomIntervalToolStripMenuItem,
             this.gameToetsToolStripMenuItem,
@@ -382,29 +371,6 @@ namespace SuperSpam
             this.instellingenToolStripMenuItem.Name = "instellingenToolStripMenuItem";
             this.instellingenToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.instellingenToolStripMenuItem.Text = "Settings";
-            // 
-            // languageToolStripMenuItem
-            // 
-            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.englishToolStripMenuItem,
-            this.nederlandsToolStripMenuItem});
-            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
-            this.languageToolStripMenuItem.Text = "Language";
-            // 
-            // englishToolStripMenuItem
-            // 
-            this.englishToolStripMenuItem.Checked = true;
-            this.englishToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            // 
-            // nederlandsToolStripMenuItem
-            // 
-            this.nederlandsToolStripMenuItem.Name = "nederlandsToolStripMenuItem";
-            this.nederlandsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.nederlandsToolStripMenuItem.Text = "Nederlands";
             // 
             // enterToetsVerzendenToolStripMenuItem
             // 
@@ -507,11 +473,20 @@ namespace SuperSpam
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onlinehelpToolStripMenuItem,
             this.overSuperSpamToolStripMenuItem,
-            this.superSpamScriptingToolStripMenuItem});
+            this.superSpamScriptingToolStripMenuItem,
+            this.comicSansModeToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // onlinehelpToolStripMenuItem
+            // 
+            this.onlinehelpToolStripMenuItem.Enabled = false;
+            this.onlinehelpToolStripMenuItem.Name = "onlinehelpToolStripMenuItem";
+            this.onlinehelpToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.onlinehelpToolStripMenuItem.Text = "Online help";
             // 
             // overSuperSpamToolStripMenuItem
             // 
@@ -525,7 +500,13 @@ namespace SuperSpam
             this.superSpamScriptingToolStripMenuItem.Name = "superSpamScriptingToolStripMenuItem";
             this.superSpamScriptingToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.superSpamScriptingToolStripMenuItem.Text = "SuperSpam Scripting";
-            this.superSpamScriptingToolStripMenuItem.Click += new System.EventHandler(this.superSpamScriptingToolStripMenuItem_Click);
+            // 
+            // comicSansModeToolStripMenuItem
+            // 
+            this.comicSansModeToolStripMenuItem.Name = "comicSansModeToolStripMenuItem";
+            this.comicSansModeToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.comicSansModeToolStripMenuItem.Text = "Comic Sans Police";
+            this.comicSansModeToolStripMenuItem.Click += new System.EventHandler(this.comicSansModeToolStripMenuItem_Click);
             // 
             // nieuweVersieToolStripMenuItem
             // 
@@ -552,6 +533,7 @@ namespace SuperSpam
             this.statusStrip1.Size = new System.Drawing.Size(551, 22);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // toolStripStatusLabel1
             // 
@@ -582,7 +564,6 @@ namespace SuperSpam
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 51);
@@ -690,20 +671,10 @@ namespace SuperSpam
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(543, 269);
-            this.tabPage3.TabIndex = 4;
-            this.tabPage3.Text = "Whatsapp typing";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.pictureBox2);
             this.tabPage4.Controls.Add(this.linkLabel1);
+            this.tabPage4.Controls.Add(this.pictureBox2);
             this.tabPage4.Controls.Add(this.label2);
             this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.pictureBox1);
@@ -713,17 +684,6 @@ namespace SuperSpam
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "About";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(349, 172);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(188, 78);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
             // 
             // linkLabel1
             // 
@@ -737,12 +697,23 @@ namespace SuperSpam
             this.linkLabel1.Text = "Check out my Github page";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(349, 172);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(188, 78);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(360, 156);
+            this.label2.Size = new System.Drawing.Size(446, 156);
             this.label2.TabIndex = 3;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -766,6 +737,10 @@ namespace SuperSpam
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -782,11 +757,14 @@ namespace SuperSpam
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // MouseRecorder
+            // 
+            this.MouseRecorder.Interval = 500;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(551, 368);
             this.Controls.Add(this.tabControl1);
@@ -800,6 +778,7 @@ namespace SuperSpam
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuperSpam_title_bar_text";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ControlPanel.ResumeLayout(false);
             this.ControlPanel.PerformLayout();
@@ -844,6 +823,7 @@ namespace SuperSpam
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem afsluitenToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem onlinehelpToolStripMenuItem;
         private ToolStripMenuItem overSuperSpamToolStripMenuItem;
         private ToolStripMenuItem debuggerToolStripMenuItem;
         private ToolStripMenuItem nieuwToolStripMenuItem;
@@ -872,7 +852,10 @@ namespace SuperSpam
         private Button button3;
         private Button button2;
         private CheckBox checkBox1;
+        private Timer MouseEngine;
+        private ToolStripMenuItem comicSansModeToolStripMenuItem;
         private ToolStripMenuItem readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private TabPage tabPage4;
         private Label label3;
         private PictureBox pictureBox1;
@@ -892,11 +875,6 @@ namespace SuperSpam
         private ToolStripMenuItem debugToolStripMenuItem;
         private ToolStripMenuItem crashSuperSpamToolStripMenuItem;
         private Timer MouseRecorder;
-        private ToolStripMenuItem loadArrayToolStripMenuItem;
-        private ToolStripMenuItem languageToolStripMenuItem;
-        private ToolStripMenuItem englishToolStripMenuItem;
-        private ToolStripMenuItem nederlandsToolStripMenuItem;
-        private TabPage tabPage3;
     }
 }
 

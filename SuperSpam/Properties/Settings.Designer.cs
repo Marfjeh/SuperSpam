@@ -25,34 +25,13 @@ namespace SuperSpam.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Beta_updates {
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int EngineSnelheid {
             get {
-                return ((bool)(this["Beta_updates"]));
+                return ((int)(this["EngineSnelheid"]));
             }
             set {
-                this["Beta_updates"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int last_tab {
-            get {
-                return ((int)(this["last_tab"]));
-            }
-            set {
-                this["last_tab"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("t4EpSJid-7UDegvSS-yB5E5eqK-6e9BedBa-SHFCjz59-qL6yzygQ-5eJqDwG8-cvEDcpid ")]
-        public string BetaKey {
-            get {
-                return ((string)(this["BetaKey"]));
+                this["EngineSnelheid"] = value;
             }
         }
         
@@ -68,15 +47,36 @@ namespace SuperSpam.Properties {
             }
         }
         
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("t4EpSJid-7UDegvSS-yB5E5eqK-6e9BedBa-SHFCjz59-qL6yzygQ-5eJqDwG8-cvEDcpid ")]
+        public string BetaKey {
+            get {
+                return ((string)(this["BetaKey"]));
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500")]
-        public int EngineSnelheid {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int last_tab {
             get {
-                return ((int)(this["EngineSnelheid"]));
+                return ((int)(this["last_tab"]));
             }
             set {
-                this["EngineSnelheid"] = value;
+                this["last_tab"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Beta_updates {
+            get {
+                return ((bool)(this["Beta_updates"]));
+            }
+            set {
+                this["Beta_updates"] = value;
             }
         }
     }

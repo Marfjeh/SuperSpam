@@ -1,11 +1,4 @@
-﻿/*
- * I'm so sorry to watch you being in pain because of this badly written code.
- * And how the hell did you got the source code? o_O
- * Marf is not a real C# programmer, he has made this in his own time because his friends needed a program like this. 
- * Do not hit Marf because of this. Marf has done no harm to you.
- * */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,8 +15,6 @@ using System.IO;
 using System.Web;
 using System.Configuration;
 using System.Net;
-using System.Xml.Linq;
-using System.Reflection;
 
 namespace SuperSpam
 {
@@ -34,20 +25,21 @@ namespace SuperSpam
         Process currentProc = Process.GetCurrentProcess();
 
         // Version Info
-        string versie = "2.6.0";
-        int version_int = 260;
+        string versie = "2.5.1";
+        int version_int = 251;
 
         // Build info
-        int buildnum = 309;
-        string buildtype = "Release";
-        string builddate = "15-9-2016";
-        string codename = "2 Years";
+        int buildnum = 310;
+        string buildtype = "Fix-Release (Version: 28-09-2016)";
+        string builddate = "28-09-2016";
+        string codename = "SAY IT LOUDER!";
 
         //Update System
         string updateserver = "http://www.marfprojects.nl/projects/Super/SuperSpam.exe";
         string updateserverpre = "http://www.marfprojects.nl/projects/Super/pre.exe";
 
-        string server = "http://www.marfprojects.nl/projects/Super/index.php";
+        string server = "http://www.marfprojects.nl/projects/Super/index.html";
+        public string changelog = "http://www.marfprojects.nl/projects/Super/changelog.html"; // not in use
         public string new_version = "";
         public string new_build = "";
         public string new_version_int = "";
@@ -66,6 +58,9 @@ namespace SuperSpam
         //See how many cpu cores there is, maybe useful for multithreading in the future
         string cpus = Environment.ProcessorCount.ToString();
         public int tabcontrolgeselecteerd = 0;
+
+        public object ConfigurationManager { get; private set; }
+
         //end
 
         public Form1()
@@ -97,15 +92,11 @@ namespace SuperSpam
             {
                 if (flash == true)
                 {
-                    //alertTimer.Enabled = true;
-                    button1.Visible = true;
-                    toolStripStatusLabel1.ForeColor = Color.Red;
+                    alertTimer.Enabled = true;
                 }
                 else
                 {
-                    //alertTimer.Enabled = false;
-                    button1.Visible = false;
-                    toolStripStatusLabel1.ForeColor = Color.Black;
+                    alertTimer.Enabled = false;
                 }
 
                 if (warningicon == true)
@@ -119,7 +110,7 @@ namespace SuperSpam
 
                 if (message == "" || message == null)
                 {
-                    toolStripStatusLabel1.Text = "SuperSpam " + versie;
+                    toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
                     toolStripStatusLabel1.ForeColor = Color.Black;
                     button1.Visible = false;
                 }
@@ -142,7 +133,7 @@ namespace SuperSpam
             }
             else if(tabcontrolgeselecteerd == 2)
             {
-                
+                MouseEngine.Enabled = true;
             }
             else
             {
@@ -272,6 +263,7 @@ namespace SuperSpam
         {
             debuglog("SuperSpam " + EngineChoser.Text + " Gestopt.", "Engine");
             EngineChoser.Enabled = true;
+            MouseEngine.Enabled = false;
             SuperSpamEngine.Enabled = false;
             OldSuperSpamEngine.Enabled = false;
             afteller.Enabled = false;
@@ -283,7 +275,7 @@ namespace SuperSpam
         private void Form1_Load(object sender, EventArgs e)
         {
             label3.Text = "SuperSpam Version: " + versie + " Build: " + buildnum + " Codename: " + codename;
-            toolStripStatusLabel1.Text = "SuperSpam " + versie;
+            toolStripStatusLabel1.Text = "SuperSpam " + versie + " Build: " + buildnum + " " + buildtype;
             debuglog("SuperSpam Bootstrapper Started.", "info");
             debuglog("SuperSpam " + versie + " Build: " + buildnum + " " + buildtype, "info");
             this.Text = "SuperSpam " + versie;
@@ -403,6 +395,12 @@ namespace SuperSpam
                 start_gui();
                 debuglog("Superspam draait in debug mode", "WARNING");
             }
+        }
+
+        private void Update_button_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(updateserver);
+            this.Close();
         }
 
         public void stop_gui()
@@ -543,7 +541,7 @@ namespace SuperSpam
 
         private void overSuperSpamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectTab(2);
+            tabControl1.SelectTab(3);
         }
 
         private void nieuwToolStripMenuItem_Click(object sender, EventArgs e)
@@ -556,7 +554,7 @@ namespace SuperSpam
             }
             else if (dialogResult == DialogResult.No)
             {
-                
+
             }
         }
 
@@ -570,7 +568,6 @@ namespace SuperSpam
                 + "\nBuild: " + buildnum
                 + "\nbuild type: " + buildtype
                 + "\nbuild date: " + builddate
-                + "\nWindows Version: " + System.Environment.OSVersion
                 + "\n64Bit process: " + in64now
                 + "\nCpu count: " + cpus
                 + "\nDebug mode: " + Debug_mode
@@ -599,6 +596,23 @@ namespace SuperSpam
             }
         }
 
+        private void CheckKeyword(string word, Color color, int startIndex)
+        {
+            if (this.textBox1.Text.Contains(word))
+            {
+                int index = -1;
+                int selectStart = this.textBox1.SelectionStart;
+
+                while ((index = this.textBox1.Text.IndexOf(word, (index + 1))) != -1)
+                {
+                    this.textBox1.Select((index + startIndex), word.Length);
+                    this.textBox1.SelectionColor = color;
+                    this.textBox1.Select(selectStart, 0);
+                    this.textBox1.SelectionColor = Color.Black;
+                }
+            }
+        }
+
         private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -608,20 +622,18 @@ namespace SuperSpam
         {
             button1.Visible = true;
             toolStripStatusLabel1.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
-            if (toolStripStatusLabel1.ForeColor == Color.Red)
-            {
-                toolStripStatusLabel1.ForeColor = Color.Black;
-            }
-            else
-            {
-                toolStripStatusLabel1.ForeColor = Color.Red;
-            }
+            alertTimer.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             statusalert(null, false, false);
             ingorealert = true;
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
         private void enableRandomIntervalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -641,10 +653,7 @@ namespace SuperSpam
         private void button2_Click(object sender, EventArgs e)
         {
             string promptValue = Prompt.ShowDialog("Add text to the array", "SuperSpam", null);
-            if (promptValue != null || promptValue != "")
-            {
-                listBox1.Items.Add(promptValue);
-            }
+            listBox1.Items.Add(promptValue);
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -666,7 +675,7 @@ namespace SuperSpam
             OldSuperSpamEngine.Enabled = false;
             switch (tabControl1.SelectedIndex)
             {
-                case 0: //classic Text
+                case 0:
                     {
                         tabcontrolgeselecteerd = 0;
                         tekstOpslaanAlsToolStripMenuItem.Enabled = true;
@@ -676,23 +685,23 @@ namespace SuperSpam
                         enablecontrolp(1);
                     }
                     break;
-                case 1: // Array
+                case 1:
                     {
                         tabcontrolgeselecteerd = 1;
                         tekstOpslaanAlsToolStripMenuItem.Enabled = false;
                         tekstOpenenToolStripMenuItem.Enabled = false;
                         readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = true;
-                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "Save Array";
+                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "Read and Write files in ArrayMode is at this moment not impented.";
                         enablecontrolp(1);
                     }
                     break;
-                case 2: // Whatsapp typing...
+                case 2:
                     {
                         tabcontrolgeselecteerd = 2;
-                        enablecontrolp(1);
+                        enablecontrolp(0);
                     }
                     break;
-                case 3: // About
+                case 3:
                     {
                         tabcontrolgeselecteerd = 3;
                         enablecontrolp(0);
@@ -704,6 +713,21 @@ namespace SuperSpam
         private void button4_Click_1(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+        }
+
+        private void comicSansModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Font = new Font("Comic Sans MS", 12, FontStyle.Regular);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -921,44 +945,6 @@ namespace SuperSpam
                     break;
             }
         }
-
-        private void superSpamScriptingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            XElement element = new XElement("Items");
-            foreach (var item in listBox1.Items)
-            {
-                element.Add(new XElement("line", item));
-            }
-            XDocument document = new XDocument();
-            document.Add(element);
-            saveFileDialog1.Title = "Save as xml";
-            saveFileDialog1.Filter = "xml file (*.xml) | *.xml";
-            saveFileDialog1.AddExtension = false;
-            saveFileDialog1.ShowDialog();
-            try { document.Save(saveFileDialog1.FileName, SaveOptions.DisableFormatting); } catch { }
-        }
-
-
-        private void loadArrayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            openFileDialog1.Title = "Open a xml file";
-            openFileDialog1.Filter = "xml file (*.xml) | *.xml";
-            openFileDialog1.AddExtension = false;
-            openFileDialog1.ShowDialog();
-            XDocument xmldoc = XDocument.Load(openFileDialog1.FileName);
-            var items = (from i in xmldoc.Descendants("items")
-                         select new { Value = i.Element("line").Value }).ToList();
-
-            listBox1.DataSource = items;
-            listBox1.DisplayMember = "items";
-            listBox1.ValueMember = "line";
-        }
         private void enableDisableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(enableDisableToolStripMenuItem.Checked == false)
@@ -1017,49 +1003,5 @@ public static class Prompt
         prompt.AcceptButton = confirmation;
 
         return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
-    }
-}
-
-class IniFile   // revision 11 http://stackoverflow.com/questions/217902/reading-writing-an-ini-file
-{
-    string Path;
-    string EXE = Assembly.GetExecutingAssembly().GetName().Name;
-
-    [DllImport("kernel32", CharSet = CharSet.Unicode)]
-    static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
-
-    [DllImport("kernel32", CharSet = CharSet.Unicode)]
-    static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
-
-    public IniFile(string IniPath = null)
-    {
-        Path = new FileInfo(IniPath ?? EXE + ".ini").FullName.ToString();
-    }
-
-    public string Read(string Key, string Section = null)
-    {
-        var RetVal = new StringBuilder(255);
-        GetPrivateProfileString(Section ?? EXE, Key, "", RetVal, 255, Path);
-        return RetVal.ToString();
-    }
-
-    public void Write(string Key, string Value, string Section = null)
-    {
-        WritePrivateProfileString(Section ?? EXE, Key, Value, Path);
-    }
-
-    public void DeleteKey(string Key, string Section = null)
-    {
-        Write(Key, null, Section ?? EXE);
-    }
-
-    public void DeleteSection(string Section = null)
-    {
-        Write(null, null, Section ?? EXE);
-    }
-
-    public bool KeyExists(string Key, string Section = null)
-    {
-        return Read(Key, Section).Length > 0;
     }
 }
