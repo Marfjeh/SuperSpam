@@ -8,20 +8,20 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="file:///C:/Users/marf/Desktop/SuperSpam-ea3a5cf3d94bf77f4bd5744386d7b184d54f8a5f/SuperSpam/publish/SuperSpam.application" />
+    <deploymentProvider codebase="file:///F:/Github/SuperSpam_fix/SuperSpam/publish/SuperSpam.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="SuperSpam.exe.manifest" size="6995">
+    <dependentAssembly dependencyType="install" codebase="SuperSpam.exe.manifest" size="6991">
       <assemblyIdentity name="SuperSpam.exe" version="2.3.14.0" publicKeyToken="0000000000000000" language="nl-NL" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>K1YB3fin64gXUtxidvo1a3QGZYPJYBTq2BMTK6eo3Ok=</dsig:DigestValue>
+        <dsig:DigestValue>BcZEyOj4osyPs6CzZVPoXtpQaQvHQ4b3Fg5S73Smenk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
