@@ -1,6 +1,8 @@
 # SuperSpam
 Advanced program for keypress automation.
 
+#There will no longer be a 2.6 update. SuperSpam³ (3.0.0) will take it's place. A newly rewritten version planned to start around 2017.
+
 OLD VERSIONS: SuperSpam not working? run this .reg file: [http://www.marfprojects.nl/projects/Super/SuperSpam.reg][0]
 
 [0]: http://www.marfprojects.nl/projects/Super/SuperSpam.reg        "http://www.marfprojects.nl/projects/Super/SuperSpam.reg"
