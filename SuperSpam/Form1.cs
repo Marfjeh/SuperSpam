@@ -43,14 +43,14 @@ namespace SuperSpam
         Process currentProc = Process.GetCurrentProcess();
 
         // Version Info
-        string versie = "2.6.0";
-        int version_int = 260;
+        string versie = "2.5.2";
+        int version_int = 252;
 
         // Build info
-        int buildnum = 309;
+        int buildnum = 400;
         string buildtype = "Release";
-        string builddate = "15-9-2016";
-        string codename = "2 Years";
+        string builddate = "13-3-2017";
+        string codename = "TheLastUpdate";
 
         //Update System
         string updateserver = "http://www.marfprojects.nl/projects/Super/SuperSpam.exe";
@@ -678,32 +678,18 @@ namespace SuperSpam
                 case 0: //classic Text
                     {
                         tabcontrolgeselecteerd = 0;
-                        tekstOpslaanAlsToolStripMenuItem.Enabled = true;
-                        tekstOpenenToolStripMenuItem.Enabled = true;
-                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = false;
-                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "none";
                         enablecontrolp(1);
                     }
                     break;
                 case 1: // Array
                     {
                         tabcontrolgeselecteerd = 1;
-                        tekstOpslaanAlsToolStripMenuItem.Enabled = false;
-                        tekstOpenenToolStripMenuItem.Enabled = false;
-                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Visible = true;
-                        readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem.Text = "Save Array";
                         enablecontrolp(1);
                     }
                     break;
-                case 2: // Whatsapp typing...
+                case 2: // About...
                     {
                         tabcontrolgeselecteerd = 2;
-                        enablecontrolp(1);
-                    }
-                    break;
-                case 3: // About
-                    {
-                        tabcontrolgeselecteerd = 3;
                         enablecontrolp(0);
                     }
                     break;
@@ -938,36 +924,57 @@ namespace SuperSpam
 
         private void readAndWirteToFilesInArrayModeIsAtThisMomentNotImpenentedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            XElement element = new XElement("Items");
-            foreach (var item in listBox1.Items)
-            {
-                element.Add(new XElement("line", item));
-            }
-            XDocument document = new XDocument();
-            document.Add(element);
-            saveFileDialog1.Title = "Save as xml";
-            saveFileDialog1.Filter = "xml file (*.xml) | *.xml";
-            saveFileDialog1.AddExtension = false;
-            saveFileDialog1.ShowDialog();
-            try { document.Save(saveFileDialog1.FileName, SaveOptions.DisableFormatting); } catch { }
+            
         }
 
 
         private void loadArrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            openFileDialog1.Title = "Open a xml file";
-            openFileDialog1.Filter = "xml file (*.xml) | *.xml";
-            openFileDialog1.AddExtension = false;
-            openFileDialog1.ShowDialog();
-            XDocument xmldoc = XDocument.Load(openFileDialog1.FileName);
-            var items = (from i in xmldoc.Descendants("items")
-                         select new { Value = i.Element("line").Value }).ToList();
-
-            listBox1.DataSource = items;
-            listBox1.DisplayMember = "items";
-            listBox1.ValueMember = "line";
+            try
+            {
+                openFileDialog1.Title = "Open a text file";
+                openFileDialog1.Filter = "text file (*.txt) | *.txt";
+                openFileDialog1.AddExtension = false;
+                openFileDialog1.ShowDialog();
+                using (StreamReader r = new StreamReader(openFileDialog1.FileName))
+                {
+                    string line;
+                    while ((line = r.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(line);
+                    }
+                    Console.WriteLine("UrlList Loaded!");
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
         }
+
+        private void saveArrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                saveFileDialog1.Title = "Save a array list";
+                saveFileDialog1.Filter = "text file (*.txt) | *.txt";
+                saveFileDialog1.AddExtension = true;
+                saveFileDialog1.ShowDialog();
+
+                string sPath = saveFileDialog1.FileName;
+                StreamWriter SaveFile = new StreamWriter(sPath);
+                foreach (var item in listBox1.Items)
+                {
+                    SaveFile.WriteLine(item);
+                }
+                SaveFile.Close();
+            }
+            catch (Exception )
+            {
+
+            }
+        }
+
         private void enableDisableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(enableDisableToolStripMenuItem.Checked == false)
@@ -1015,7 +1022,7 @@ public static class Prompt
             StartPosition = FormStartPosition.CenterScreen,
             ControlBox = false
         };
-        Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
+        Label textLabel = new Label() { Left = 50, Top = 20, Text = text , Width = 400};
         TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400, Text = textboxdata };
         Button confirmation = new Button() { Text = "OK", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
         Button Nope = new Button() { Text = "Cansel", Left = 200, Width = 50, Top = 70, DialogResult = DialogResult.Cancel};
