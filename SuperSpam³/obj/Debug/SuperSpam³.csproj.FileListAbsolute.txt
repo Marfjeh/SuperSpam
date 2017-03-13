@@ -1,0 +1,11 @@
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\bin\Debug\SuperSpam³.exe.config
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\bin\Debug\SuperSpam³.exe
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\bin\Debug\SuperSpam³.pdb
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\obj\Debug\SuperSpam³.csprojResolveAssemblyReference.cache
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\obj\Debug\SuperSpam_.Form1.resources
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\obj\Debug\SuperSpam_.Properties.Resources.resources
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\obj\Debug\SuperSpam³.csproj.GenerateResource.Cache
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\obj\Debug\SuperSpam³.exe
+c:\users\marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\obj\Debug\SuperSpam³.pdb
+C:\Users\Marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\bin\Debug\HenoohDeviceEmulator.dll
+C:\Users\Marf\documents\visual studio 2017\Projects\SuperSpam³\SuperSpam³\bin\Debug\HenoohWpfBase.dll
