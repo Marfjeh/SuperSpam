@@ -1,4 +1,9 @@
 # SuperSpam 3
+
+
+## project aborted. because i lost interest in SuperSpam at least on the C# version. maybe the java version will replace superspam. I'm also thinking to public the sourcecode.
+
+
 Advanced program for keypress automation.
 
 Here we are SuperSpam 3! A new rewritten & clean ui!
