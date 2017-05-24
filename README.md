@@ -1,7 +1,7 @@
 # SuperSpam 3
 
 
-## project aborted. because i lost interest in SuperSpam at least on the C# version. maybe the java version will replace superspam. I'm also thinking to public the sourcecode.
+## project aborted. because i lost interest in SuperSpam at least on the C# version. maybe the java version will replace superspam. I'm also thinking to public the sourcecode. if you want to continue the project feel free to make a pull request!
 
 
 Advanced program for keypress automation.
